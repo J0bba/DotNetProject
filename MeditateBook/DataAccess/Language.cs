@@ -52,7 +52,18 @@ namespace MeditateBook.DataAccess
         {
             try
             {
-
+                using (MeditateBookEntities bdd = new MeditateBookEntities())
+                {
+                    T_Language oldLanguage = bdd.T_Language.Where(x => x.id == language.Id).FirstOrDefault();
+                    if (oldLanguage != null)
+                    {
+                        oldLanguage.name = language.Name;
+                        oldLanguage.shortname = language.ShortName;
+                        bdd.SaveChanges();
+                        return true;
+                    }
+                    return false;
+                }
             }
             catch (Exception e)
             {

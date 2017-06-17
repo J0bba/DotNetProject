@@ -103,5 +103,24 @@ namespace MeditateBook.DataAccess
                 return null;
             }
         }
+
+        public static bool ValidateUser(string email, string password)
+        {
+            try
+            {
+                using (MeditateBookEntities bdd = new MeditateBookEntities())
+                {
+                    T_User user = bdd.T_User.Where(x => x.email == email && x.password == password).FirstOrDefault();
+                    if (user != null)
+                        return true;
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                return false;
+            }
+        }
     }
 }

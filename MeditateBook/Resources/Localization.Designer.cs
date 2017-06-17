@@ -61,6 +61,15 @@ namespace MeditateBook.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Courrier électronique.
+        /// </summary>
+        internal static string email_label {
+            get {
+                return ResourceManager.GetString("email_label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Le projet de DotNet.
         /// </summary>
         internal static string title_page {

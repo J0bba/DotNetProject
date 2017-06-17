@@ -28,5 +28,10 @@ namespace MeditateBook.BusinessManagement
         {
             return DataAccess.User.GetUserById(id);
         }
+        public static bool ValidateUser(string username, string password)
+        {
+            // TODO : Bails de mdp
+            return DataAccess.User.ValidateUser(username, password);
+        }
     }
 }
