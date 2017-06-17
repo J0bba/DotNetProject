@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1a624b1bb4ba4d15bb40b5fb063aafa0" Name="Diagram1">
+        <EntityTypeShape EntityType="MeditateBookModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditateBookModel.T_Article" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditateBookModel.T_Article_Attach" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditateBookModel.T_Article_Image" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditateBookModel.T_Comment" Width="1.5" PointX="8.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditateBookModel.T_Language" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditateBookModel.T_Message" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditateBookModel.T_Translation" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditateBookModel.T_User" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditateBookModel.T_User_Like" Width="1.5" PointX="8.25" PointY="11.25" IsExpanded="true" />
+        <AssociationConnector Association="MeditateBookModel.FK_T_Article_Attach_T_Article" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditateBookModel.FK_T_Article_Image_T_Article" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditateBookModel.FK_T_Article_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditateBookModel.FK_T_Comment_T_Article" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditateBookModel.FK_T_Translation_T_Article" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditateBookModel.FK_T_User_Like_T_Article" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditateBookModel.FK_T_Comment_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditateBookModel.FK_T_Translation_T_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditateBookModel.FK_T_Message_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditateBookModel.FK_T_Message_T_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditateBookModel.FK_T_Translation_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditateBookModel.FK_T_User_Like_T_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

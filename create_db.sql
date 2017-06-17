@@ -1,3 +1,6 @@
+CREATE DATABASE MeditateBook
+
+
 USE [MeditateBook]
 GO
 /****** Object:  Table [dbo].[T_Article]    Script Date: 06/06/2017 17:11:50 ******/
