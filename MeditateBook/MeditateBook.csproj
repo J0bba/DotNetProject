@@ -149,17 +149,64 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BusinessManagement\Article.cs" />
+    <Compile Include="BusinessManagement\ArticleAttach.cs" />
+    <Compile Include="BusinessManagement\ArticleImage.cs" />
+    <Compile Include="BusinessManagement\Comment.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DataAccess\Article.cs" />
+    <Compile Include="DataAccess\ArticleAttach.cs" />
+    <Compile Include="DataAccess\ArticleImage.cs" />
+    <Compile Include="DataAccess\Comment.cs" />
     <Compile Include="DataAccess\DB_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DB_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\DB_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\DB_Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DB_Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\sysdiagrams.cs">
+      <DependentUpon>DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\T_Article.cs">
+      <DependentUpon>DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\T_Article_Attach.cs">
+      <DependentUpon>DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\T_Article_Image.cs">
+      <DependentUpon>DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\T_Comment.cs">
+      <DependentUpon>DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\T_Language.cs">
+      <DependentUpon>DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\T_Message.cs">
+      <DependentUpon>DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\T_Translation.cs">
+      <DependentUpon>DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\T_User.cs">
+      <DependentUpon>DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\T_User_Like.cs">
+      <DependentUpon>DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBO\Article.cs" />
+    <Compile Include="DBO\ArticleAttach.cs" />
+    <Compile Include="DBO\ArticleImage.cs" />
+    <Compile Include="DBO\Comment.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -171,6 +218,12 @@
     <Content Include="DataAccess\DB_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DB_Model.Context.cs</LastGenOutput>
+      <DependentUpon>DB_Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="DataAccess\DB_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DB_Model.edmx</DependentUpon>
+      <LastGenOutput>DB_Model.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -185,9 +238,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DB_Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DataAccess\DB_Model.edmx.diagram">
+    <Content Include="DataAccess\DB_Model.edmx.diagram">
       <DependentUpon>DB_Model.edmx</DependentUpon>
-    </None>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -216,7 +269,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="BusinessManagement\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
