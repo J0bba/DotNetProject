@@ -153,6 +153,7 @@
     <Compile Include="BusinessManagement\ArticleAttach.cs" />
     <Compile Include="BusinessManagement\ArticleImage.cs" />
     <Compile Include="BusinessManagement\Comment.cs" />
+    <Compile Include="BusinessManagement\Message.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataAccess\Article.cs" />
     <Compile Include="DataAccess\ArticleAttach.cs" />
@@ -174,6 +175,7 @@
       <DependentUpon>DB_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\Language.cs" />
+    <Compile Include="DataAccess\Message.cs" />
     <Compile Include="DataAccess\sysdiagrams.cs">
       <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
