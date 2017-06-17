@@ -48,7 +48,7 @@ namespace MeditateBook.DataAccess
             }
         }
 
-        public static UpdateLanguage(DBO.Language language)
+        public static bool UpdateLanguage(DBO.Language language)
         {
             try
             {
