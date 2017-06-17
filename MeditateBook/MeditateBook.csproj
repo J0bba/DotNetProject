@@ -155,6 +155,7 @@
     <Compile Include="BusinessManagement\Comment.cs" />
     <Compile Include="BusinessManagement\Message.cs" />
     <Compile Include="BusinessManagement\Translation.cs" />
+    <Compile Include="BusinessManagement\User.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataAccess\Article.cs" />
     <Compile Include="DataAccess\ArticleAttach.cs" />
@@ -208,6 +209,7 @@
     <Compile Include="DataAccess\T_User_Like.cs">
       <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\User.cs" />
     <Compile Include="DBO\Article.cs" />
     <Compile Include="DBO\ArticleAttach.cs" />
     <Compile Include="DBO\ArticleImage.cs" />

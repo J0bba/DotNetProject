@@ -59,14 +59,18 @@ namespace MeditateBook.DataAccess
                 using (MeditateBookEntities bdd = new MeditateBookEntities())
                 {
                     T_Translation oldTranslation = bdd.T_Translation.Where(x => x.id == translation.Id).FirstOrDefault();
-                    oldTranslation.content = translation.Content;
-                    oldTranslation.id_article = translation.IdArticle;
-                    oldTranslation.id_language = translation.IdLanguage;
-                    oldTranslation.id_translator = translation.IdTranslator;
-                    oldTranslation.validated = translation.Validated;
+                    if (oldTranslation != null)
+                    {
+                        oldTranslation.content = translation.Content;
+                        oldTranslation.id_article = translation.IdArticle;
+                        oldTranslation.id_language = translation.IdLanguage;
+                        oldTranslation.id_translator = translation.IdTranslator;
+                        oldTranslation.validated = translation.Validated;
 
-                    bdd.SaveChanges();
-                    return true;
+                        bdd.SaveChanges();
+                        return true;
+                    }
+                    return false;
                 }
             }
             catch (Exception e)
