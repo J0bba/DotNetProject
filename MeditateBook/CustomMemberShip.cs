@@ -73,7 +73,7 @@ namespace MeditateBook
         {
             get
             {
-                throw new NotImplementedException();
+                return MembershipPasswordFormat.Clear;
             }
         }
 
