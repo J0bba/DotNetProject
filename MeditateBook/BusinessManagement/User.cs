@@ -51,8 +51,9 @@ namespace MeditateBook.BusinessManagement
         }
         public static bool ValidateUser(string username, string password)
         {
-            password = Encrypt(password);
-            return DataAccess.User.ValidateUser(username, password);
+            string userPass = DataAccess.User.GetPasswordByUser(username);
+            string pass = Decrypt(userPass);
+            return password.Equals(pass);
         }
     }
 }

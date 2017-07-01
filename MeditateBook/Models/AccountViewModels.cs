@@ -79,6 +79,14 @@ namespace MeditateBook.Models
         [Display(Name = "Confirmer le mot de passe ")]
         [Compare("Password", ErrorMessage = "Le mot de passe et le mot de passe de confirmation ne correspondent pas.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Firstname")]
+        public string Firstname { get; set; }
+
+        [Required]
+        [Display(Name = "Lastname")]
+        public string Lastname { get; set; }
     }
 
     public class ResetPasswordViewModel

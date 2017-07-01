@@ -82,7 +82,7 @@ namespace MeditateBook.Controllers
             {
                 case true:
                     FormsAuthentication.RedirectFromLoginPage(model.Email, model.RememberMe);
-                    return View(model);
+                    return returnUrl == null ? RedirectToAction("Index", "Home") : RedirectToLocal(returnUrl);
                 //case SignInStatus.LockedOut:
                 //    return View("Lockout");
                 //case SignInStatus.RequiresVerification:
@@ -158,16 +158,16 @@ namespace MeditateBook.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public ActionResult Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                var user = new DBO.User() { Firstname = model.Firstname, Email = model.Email, Lastname = model.Lastname, Password = model.Password, Role = BusinessManagement.UserRoles.Roles.User };
+                var result = BusinessManagement.User.CreateUser(user);
+                if (result)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
+                    FormsAuthentication.RedirectFromLoginPage(user.Email, true);
                     // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771
                     // Envoyer un message électronique avec ce lien
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -176,7 +176,6 @@ namespace MeditateBook.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
-                AddErrors(result);
             }
 
             // Si nous sommes arrivés là, un échec s’est produit. Réafficher le formulaire

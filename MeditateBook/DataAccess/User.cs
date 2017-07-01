@@ -106,6 +106,24 @@ namespace MeditateBook.DataAccess
                 return null;
             }
         }
+        public static string GetPasswordByUser(string email)
+        {
+            try
+            {
+                using (MeditateBookEntities bdd = new MeditateBookEntities())
+                {
+                    T_User user = bdd.T_User.Where(x => x.email == email).FirstOrDefault();
+                    if (user != null)
+                        return user.password;
+                    return "";
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                return "";
+            }
+        }
 
         public static bool ValidateUser(string email, string password)
         {
