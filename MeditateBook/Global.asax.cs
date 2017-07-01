@@ -14,7 +14,6 @@ namespace MeditateBook
     {
         protected void Application_Start()
         {
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture("en");
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
