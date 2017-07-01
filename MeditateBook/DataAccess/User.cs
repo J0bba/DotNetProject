@@ -143,5 +143,35 @@ namespace MeditateBook.DataAccess
                 return false;
             }
         }
+
+        public static DBO.User GetUserByName(string name)
+        {
+            try
+            {
+                using (MeditateBookEntities bdd = new MeditateBookEntities())
+                {
+                    T_User user = bdd.T_User.Where(x => x.email == name).FirstOrDefault();
+                    if (user != null)
+                    {
+                        DBO.User result = new DBO.User()
+                        {
+                            Email = user.email,
+                            Firstname = user.firstname,
+                            Id = user.id,
+                            Lastname = user.lastname,
+                            Password = user.password,
+                            Role = (BusinessManagement.UserRoles.Roles)user.role
+                        };
+                        return result;
+                    }
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                return null;
+            }
+        }
     }
 }

@@ -81,6 +81,7 @@ namespace MeditateBook.Controllers
             switch (result)
             {
                 case true:
+                    HttpContext.Session["UserID"] = BusinessManagement.User.getIdByName(model.Email);
                     FormsAuthentication.RedirectFromLoginPage(model.Email, model.RememberMe);
                     return returnUrl == null ? RedirectToAction("Index", "Home") : RedirectToLocal(returnUrl);
                 //case SignInStatus.LockedOut:
@@ -166,7 +167,7 @@ namespace MeditateBook.Controllers
                 var result = BusinessManagement.User.CreateUser(user);
                 if (result)
                 {
-
+                    HttpContext.Session["UserID"] = BusinessManagement.User.getIdByName(model.Email);
                     FormsAuthentication.RedirectFromLoginPage(user.Email, true);
                     // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771
                     // Envoyer un message électronique avec ce lien

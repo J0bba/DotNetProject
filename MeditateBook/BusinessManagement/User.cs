@@ -55,5 +55,11 @@ namespace MeditateBook.BusinessManagement
             string pass = Decrypt(userPass);
             return password.Equals(pass);
         }
+
+        public static long getIdByName(string username)
+        {
+            DBO.User user = DataAccess.User.GetUserByName(username);
+            return user.Id;
+        }
     }
 }

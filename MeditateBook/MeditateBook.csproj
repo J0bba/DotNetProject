@@ -210,6 +210,7 @@
     <Compile Include="BusinessManagement\UserRoles.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
+    <Compile Include="Controllers\EditArticleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -284,6 +285,7 @@
     <Compile Include="Helper\SwitchLanguageHelper.cs" />
     <Compile Include="Models\ArticlesViewModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\EditArticleModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -380,6 +382,8 @@
     <Content Include="Web.config" />
     <Content Include="Views\Articles\Index.cshtml" />
     <Content Include="Views\Articles\Article.cshtml" />
+    <Content Include="Views\Articles\Submit.cshtml" />
+    <Content Include="Views\EditArticle\EditArticle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
