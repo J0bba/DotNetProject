@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [MeditateBook]    Script Date: 01/07/2017 17:05:49 ******/
+/****** Object:  Database [MeditateBook]    Script Date: 01/07/2017 19:03:24 ******/
 CREATE DATABASE [MeditateBook]
  CONTAINMENT = NONE
 ALTER DATABASE [MeditateBook] SET COMPATIBILITY_LEVEL = 130
@@ -92,7 +92,7 @@ ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET QUERY_OPTIMIZER_HOTFIXES =
 GO
 USE [MeditateBook]
 GO
-/****** Object:  Table [dbo].[T_Article]    Script Date: 01/07/2017 17:05:49 ******/
+/****** Object:  Table [dbo].[T_Article]    Script Date: 01/07/2017 19:03:24 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -111,7 +111,7 @@ CREATE TABLE [dbo].[T_Article](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[T_Article_Attach]    Script Date: 01/07/2017 17:05:49 ******/
+/****** Object:  Table [dbo].[T_Article_Attach]    Script Date: 01/07/2017 19:03:24 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -127,7 +127,7 @@ CREATE TABLE [dbo].[T_Article_Attach](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[T_Article_Image]    Script Date: 01/07/2017 17:05:49 ******/
+/****** Object:  Table [dbo].[T_Article_Image]    Script Date: 01/07/2017 19:03:24 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -143,7 +143,7 @@ CREATE TABLE [dbo].[T_Article_Image](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[T_Comment]    Script Date: 01/07/2017 17:05:49 ******/
+/****** Object:  Table [dbo].[T_Comment]    Script Date: 01/07/2017 19:03:24 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -161,7 +161,7 @@ CREATE TABLE [dbo].[T_Comment](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[T_Language]    Script Date: 01/07/2017 17:05:49 ******/
+/****** Object:  Table [dbo].[T_Language]    Script Date: 01/07/2017 19:03:24 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -177,7 +177,7 @@ CREATE TABLE [dbo].[T_Language](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[T_Message]    Script Date: 01/07/2017 17:05:49 ******/
+/****** Object:  Table [dbo].[T_Message]    Script Date: 01/07/2017 19:03:24 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -195,7 +195,7 @@ CREATE TABLE [dbo].[T_Message](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[T_Translation]    Script Date: 01/07/2017 17:05:49 ******/
+/****** Object:  Table [dbo].[T_Translation]    Script Date: 01/07/2017 19:03:24 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -214,7 +214,7 @@ CREATE TABLE [dbo].[T_Translation](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[T_User]    Script Date: 01/07/2017 17:05:49 ******/
+/****** Object:  Table [dbo].[T_User]    Script Date: 01/07/2017 19:03:24 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -222,7 +222,7 @@ GO
 CREATE TABLE [dbo].[T_User](
 	[id] [bigint] IDENTITY(1,1) NOT NULL,
 	[email] [varchar](255) NOT NULL,
-	[password] [text] NOT NULL,
+	[password] [varchar](max) NOT NULL,
 	[firstname] [varchar](255) NULL,
 	[lastname] [varchar](255) NULL,
 	[role] [int] NULL,
@@ -233,7 +233,7 @@ CREATE TABLE [dbo].[T_User](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[T_User_Like]    Script Date: 01/07/2017 17:05:49 ******/
+/****** Object:  Table [dbo].[T_User_Like]    Script Date: 01/07/2017 19:03:24 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
