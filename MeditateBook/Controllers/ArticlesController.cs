@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MeditateBook.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,9 @@ namespace MeditateBook.Controllers
         // GET: Articles
         public ActionResult Index()
         {
-            return View();
+            ArticlesListViewModel model = new ArticlesListViewModel();
+            model.ListArticle = BusinessManagement.Article.GetListArticle();
+            return View(model);
         }
     }
 }

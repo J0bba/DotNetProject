@@ -7,11 +7,11 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("Bonjour " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink("Bonjour " + User.Identity.GetUserName() + " !", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li>
-            <!--@Html.ActionLink("Se Déconnecter", "Deconnect", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })-->
-            <a href="javascript:document.getElementById('logoutForm').submit()">Se déconnecter</a>
+            <!--@Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Logout, "Deconnect", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })-->
+            <a href="javascript:document.getElementById('logoutForm').submit()">@Html.Raw(MeditateBook.Resources.Views.Shared._Layout.Logout)</a>
         </li>
     </ul>
     }
@@ -19,7 +19,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("S’inscrire", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Se connecter", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Login, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
