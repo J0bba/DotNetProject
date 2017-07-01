@@ -139,6 +139,12 @@ namespace MeditateBook.Controllers
             }
         }
 
+        public ActionResult Disconnect()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+
         //
         // GET: /Account/Register
         [AllowAnonymous]
