@@ -4,5 +4,7 @@
 }
 
 <div class="row">
+    <h2>@Html.Raw(Model.Article.Title) (@Html.Raw(Model.Article.CreatedDate.ToShortDateString()))</h2>
+
    @Html.Raw(Model.Article.Content)
 </div>

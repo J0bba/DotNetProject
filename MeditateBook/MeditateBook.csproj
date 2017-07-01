@@ -299,6 +299,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.fr.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Views\Articles\_Articles.Designer.cs">
+      <DependentUpon>_Articles.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Articles\_Articles.en.Designer.cs">
+      <DependentUpon>_Articles.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\Views\Shared\_Layout.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -394,7 +404,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Resources\Models\" />
-    <Folder Include="Resources\Views\Articles\" />
     <Folder Include="Resources\Views\Home\" />
     <Folder Include="Resources\Views\Language\" />
     <Folder Include="Views\Language\" />
@@ -425,6 +434,14 @@
     <EmbeddedResource Include="Resources\Views\Account\Index.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Articles\_Articles.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_Articles.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Articles\_Articles.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_Articles.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Shared\_Layout.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
