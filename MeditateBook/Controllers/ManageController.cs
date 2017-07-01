@@ -11,7 +11,7 @@ using MeditateBook.Models;
 namespace MeditateBook.Controllers
 {
     [Authorize]
-    public class ManageController : Controller
+    public class ManageController : _BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;

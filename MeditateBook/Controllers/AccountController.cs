@@ -15,7 +15,7 @@ using System.Web.Security;
 namespace MeditateBook.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : _BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;

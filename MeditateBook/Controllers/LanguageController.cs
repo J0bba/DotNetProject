@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace MeditateBook.Controllers
 {
-    public class ArticlesController : _BaseController
+    public class LanguageController : _BaseController
     {
-        // GET: Articles
+        // GET: Language
         public ActionResult Index()
         {
             return View();
