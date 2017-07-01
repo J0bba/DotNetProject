@@ -17,7 +17,6 @@ namespace MeditateBook.Controllers
         }
         protected override void ExecuteCore()
         {
-            System.Diagnostics.Debug.WriteLine("CA PASSE BIEN PAR LA");
             if (RouteData.Values["lang"] != null &&
              !string.IsNullOrWhiteSpace(RouteData.Values["lang"].ToString()))
             {
