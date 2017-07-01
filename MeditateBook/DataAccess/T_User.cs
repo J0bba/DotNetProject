@@ -30,6 +30,7 @@ namespace MeditateBook.DataAccess
         public string password { get; set; }
         public string firstname { get; set; }
         public string lastname { get; set; }
+        public Nullable<int> role { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_Article> T_Article { get; set; }

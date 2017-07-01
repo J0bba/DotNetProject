@@ -12,5 +12,6 @@ namespace MeditateBook.DBO
         public string Password { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
+        public MeditateBook.BusinessManagement.UserRoles.Roles Role { get; set; } 
     }
 }

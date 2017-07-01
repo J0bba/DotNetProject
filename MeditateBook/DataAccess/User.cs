@@ -18,7 +18,8 @@ namespace MeditateBook.DataAccess
                         email = user.Email,
                         firstname = user.Firstname,
                         lastname = user.Lastname,
-                        password = user.Password
+                        password = user.Password,
+                        role = (int)user.Role
                     };
 
                     bdd.T_User.Add(newUser);
@@ -63,6 +64,7 @@ namespace MeditateBook.DataAccess
                     oldUser.email = user.Email;
                     oldUser.lastname = user.Lastname;
                     oldUser.password = user.Password;
+                    oldUser.role = (int)user.Role;
 
                     bdd.SaveChanges();
                     return true;
@@ -90,7 +92,8 @@ namespace MeditateBook.DataAccess
                             Firstname = user.firstname,
                             Id = user.id,
                             Lastname = user.lastname,
-                            Password = user.password
+                            Password = user.password,
+                            Role = (BusinessManagement.UserRoles.Roles)user.role
                         };
                         return result;
                     }
