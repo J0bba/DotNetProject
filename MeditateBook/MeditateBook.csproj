@@ -236,9 +236,6 @@
     </Compile>
     <Compile Include="DataAccess\Language.cs" />
     <Compile Include="DataAccess\Message.cs" />
-    <Compile Include="DataAccess\sysdiagrams.cs">
-      <DependentUpon>DB_Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataAccess\Translation.cs" />
     <Compile Include="DataAccess\T_Article.cs">
       <DependentUpon>DB_Model.tt</DependentUpon>
