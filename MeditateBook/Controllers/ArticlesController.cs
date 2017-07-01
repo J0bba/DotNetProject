@@ -16,5 +16,12 @@ namespace MeditateBook.Controllers
             model.ListArticle = BusinessManagement.Article.GetListArticle();
             return View(model);
         }
+
+        public ActionResult Article(int id = 0)
+        {
+            ArticleViewModel model = new ArticleViewModel();
+            model.Article = BusinessManagement.Article.GetArticle(id);
+            return View(model);
+        }
     }
 }

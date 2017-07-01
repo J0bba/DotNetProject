@@ -379,6 +379,7 @@
     <Content Include="Views\Shared\_SelectLanguage.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Views\Articles\Index.cshtml" />
+    <Content Include="Views\Articles\Article.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

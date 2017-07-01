@@ -1,0 +1,8 @@
+﻿@model MeditateBook.Models.ArticleViewModel
+@{
+    ViewBag.Title = MeditateBook.Resources.Views.Shared._Layout.Articles;
+}
+
+<div class="row">
+   @Html.Raw(Model.Article.Content)
+</div>
