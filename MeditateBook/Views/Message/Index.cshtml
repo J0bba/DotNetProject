@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@model List<MeditateBook.DBO.Conversation>
+
+<h2>Index</h2>
+@foreach(MeditateBook.DBO.Conversation conv in Model)
+{
+    <div>@conv.FriendName               @conv.LastMessageDate.ToShortDateString()     : 
+        @if(!conv.wasRead)
+        {
+            <b>@conv.LastMessageContent</b>
+        }
+        else
+        {
+            @conv.LastMessageContent
+        }
+
+    </div>
+
+}

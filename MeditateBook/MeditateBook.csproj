@@ -214,6 +214,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\_BaseController.cs" />
     <Compile Include="CustomMemberShip.cs" />
@@ -275,6 +276,7 @@
     <Compile Include="DBO\ArticleAttach.cs" />
     <Compile Include="DBO\ArticleImage.cs" />
     <Compile Include="DBO\Comment.cs" />
+    <Compile Include="DBO\Conversation.cs" />
     <Compile Include="DBO\Language.cs" />
     <Compile Include="DBO\Message.cs" />
     <Compile Include="DBO\Translation.cs" />
@@ -408,6 +410,7 @@
     <Content Include="Views\Articles\Submit.cshtml" />
     <Content Include="Views\EditArticle\EditArticle.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -12,5 +12,6 @@ namespace MeditateBook.DBO
         public long IdSender { get; set; }
         public long IdReceiver { get; set; }
         public DateTime Date { get; set; }
+        public bool IsSeen { get; set; }
     }
 }

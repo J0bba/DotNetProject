@@ -19,6 +19,7 @@ namespace MeditateBook.DataAccess
         public long id_sender { get; set; }
         public long id_receiver { get; set; }
         public System.DateTime date { get; set; }
+        public Nullable<bool> isSeen { get; set; }
     
         public virtual T_User T_User { get; set; }
         public virtual T_User T_User1 { get; set; }

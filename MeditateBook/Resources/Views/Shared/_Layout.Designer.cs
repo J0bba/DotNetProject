@@ -97,6 +97,15 @@ namespace MeditateBook.Resources.Views.Shared {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Messagerie.
+        /// </summary>
+        public static string Messages {
+            get {
+                return ResourceManager.GetString("Messages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à S&apos;inscrire.
         /// </summary>
         public static string Register {

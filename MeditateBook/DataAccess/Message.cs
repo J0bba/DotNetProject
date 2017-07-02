@@ -18,7 +18,8 @@ namespace MeditateBook.DataAccess
                         content = message.Content,
                         date = message.Date,
                         id_receiver = message.IdReceiver,
-                        id_sender = message.IdSender
+                        id_sender = message.IdSender,
+                        isSeen = message.IsSeen
                     };
 
                     bdd.T_Message.Add(newMessage);
@@ -62,6 +63,7 @@ namespace MeditateBook.DataAccess
                     oldMessage.date = message.Date;
                     oldMessage.id_receiver = message.IdReceiver;
                     oldMessage.id_sender = message.IdSender;
+                    oldMessage.isSeen = message.IsSeen;
                     bdd.SaveChanges();
                     return true;
                 }
@@ -89,7 +91,8 @@ namespace MeditateBook.DataAccess
                             Date = message.date,
                             Id = message.id,
                             IdReceiver = message.id_receiver,
-                            IdSender = message.id_sender
+                            IdSender = message.id_sender,
+                            IsSeen = message.isSeen.Value
                         };
                         result.Add(newMessage);
                     }
