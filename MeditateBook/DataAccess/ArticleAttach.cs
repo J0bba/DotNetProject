@@ -16,7 +16,8 @@ namespace MeditateBook.DataAccess
                     T_Article_Attach newArticleAttach = new T_Article_Attach()
                     {
                         id_article = articleAttach.IdArticle,
-                        file_path = articleAttach.FilePath
+                        file_path = articleAttach.FilePath,
+                        name = articleAttach.Name
                     };
                     bdd.T_Article_Attach.Add(newArticleAttach);
                     bdd.SaveChanges();
@@ -59,6 +60,7 @@ namespace MeditateBook.DataAccess
                     {
                         old.id_article = articleAttach.IdArticle;
                         old.file_path = articleAttach.FilePath;
+                        old.name = articleAttach.Name;
                         bdd.SaveChanges();
                         return true;
                     }
@@ -86,11 +88,42 @@ namespace MeditateBook.DataAccess
                         {
                             Id = ArticleAttach.id,
                             IdArticle = ArticleAttach.id_article,
-                            FilePath = ArticleAttach.file_path
+                            FilePath = ArticleAttach.file_path,
+                            Name = ArticleAttach.name
                         };
                         result.Add(newAttach);
                     }
                     return result;
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                return result;
+            }
+        }
+
+        public static List<DBO.ArticleAttach> GetListWithWord(string word)
+        {
+            List<DBO.ArticleAttach> result = new List<DBO.ArticleAttach>();
+            try
+            {
+                using (MeditateBookEntities bdd = new MeditateBookEntities())
+                {
+                    List<T_Article_Attach> list = bdd.T_Article_Attach.Where(x => x.name.Contains(word)).ToList();
+                    foreach (T_Article_Attach ArticleAttach in list)
+                    {
+                        DBO.ArticleAttach newAttach = new DBO.ArticleAttach()
+                        {
+                            Id = ArticleAttach.id,
+                            IdArticle = ArticleAttach.id_article,
+                            FilePath = ArticleAttach.file_path,
+                            Name = ArticleAttach.name
+                        };
+                        result.Add(newAttach);
+                    }
+                    return result;
+
                 }
             }
             catch (Exception e)

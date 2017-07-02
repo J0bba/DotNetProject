@@ -17,6 +17,7 @@ namespace MeditateBook.DataAccess
         public long id { get; set; }
         public long id_article { get; set; }
         public string image_path { get; set; }
+        public string name { get; set; }
     
         public virtual T_Article T_Article { get; set; }
     }

@@ -8,6 +8,7 @@ namespace MeditateBook.DBO
     public class ArticleAttach
     {
         public long Id { get; set; }
+        public string Name { get; set; }
         public long IdArticle { get; set; }
         public string FilePath { get; set; }
     }

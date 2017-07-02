@@ -170,5 +170,36 @@ namespace MeditateBook.DataAccess
                 return result;
             }
         }
+
+        public static List<DBO.Article> GetListArticleByText(string word)
+        {
+            List<DBO.Article> result = new List<DBO.Article>();
+            try
+            {
+                using (MeditateBookEntities bdd = new MeditateBookEntities())
+                {
+                    List<T_Article> list = bdd.T_Article.Where(x => x.content.Contains(word)).ToList();
+                    foreach (T_Article article in list)
+                    {
+                        DBO.Article newArticle = new DBO.Article()
+                        {
+                            Id = article.id,
+                            Title = article.title,
+                            Content = article.content,
+                            CreatedDate = article.created_date,
+                            Validated = article.validated,
+                            IdCreator = article.id_creator
+                        };
+                        result.Add(newArticle);
+                    }
+                    return result;
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                return result;
+            }
+        }
     }
 }

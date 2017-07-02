@@ -10,6 +10,7 @@ namespace MeditateBook.Controllers
         {
             SearchViewModel model = new SearchViewModel();
             model.searchedText = searchString;
+            model.Results = BusinessManagement.Article.GetListArticleBySearch(searchString);
             return View(model);
         }
     }

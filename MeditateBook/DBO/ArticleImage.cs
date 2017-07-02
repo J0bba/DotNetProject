@@ -8,6 +8,7 @@ namespace MeditateBook.DBO
     public class ArticleImage
     {
         public long Id { get; set; }
+        public string Name { get; set; }
         public long IdArticle { get; set; }
         public string ImagePath { get; set; }
     }

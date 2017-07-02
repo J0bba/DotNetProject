@@ -36,5 +36,59 @@ namespace MeditateBook.BusinessManagement
         {
             return DataAccess.Article.GetListArticleByUser(user_id);
         }
+
+        public static List<DBO.Article> GetListArticleWithText(string word)
+        {
+            return DataAccess.Article.GetListArticleByText(word);
+        }
+
+        public static List<DBO.Article> GetListArticleBySearch(string searchString)
+        {
+            var result = new List<DBO.Article>();
+            searchString = searchString.ToLower();
+            string[] words = searchString.Split();
+            foreach (var word in words)
+            {
+                result = GetListArticleWithText(word);
+                List<DBO.ArticleAttach> attachs = ArticleAttach.GetListWithWord(word);
+                foreach(var attach in attachs)
+                {
+                    var article = GetArticle(attach.IdArticle);
+                    if (!isInList(article, result))
+                        result.Add(article);
+                }
+                List<DBO.ArticleImage> images = ArticleImage.GetListWithWord(word);
+                foreach (var image in images)
+                {
+                    var article = GetArticle(image.IdArticle);
+                    if (!isInList(article, result))
+                        result.Add(article);
+                }
+
+            }
+            return result;
+        }
+
+        private static bool isInList(DBO.Article article, List<DBO.Article> list)
+        {
+            foreach(var articl in list)
+            {
+                if (articl.Id == article.Id)
+                    return true;
+            }
+            return false;
+        }
+
+        private static List<DBO.Article> MergeList(List<DBO.Article> list1, List<DBO.Article> list2)
+        {
+            List<DBO.Article> result = list1;
+            foreach (var article in list2)
+            {
+                if (!isInList(article, list1))
+                    result.Add(article);
+            }
+            return result;
+        }
+
     }
 }

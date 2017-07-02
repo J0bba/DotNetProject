@@ -16,7 +16,8 @@ namespace MeditateBook.DataAccess
                     T_Article_Image newArticleAttach = new T_Article_Image()
                     {
                         id_article = articleImage.IdArticle,
-                        image_path = articleImage.ImagePath
+                        image_path = articleImage.ImagePath,
+                        name = articleImage.Name
                     };
                     bdd.T_Article_Image.Add(newArticleAttach);
                     bdd.SaveChanges();
@@ -59,6 +60,7 @@ namespace MeditateBook.DataAccess
                     {
                         old.id_article = articleImage.IdArticle;
                         old.image_path = articleImage.ImagePath;
+                        old.name = articleImage.Name;
                         bdd.SaveChanges();
                         return true;
                     }
@@ -86,7 +88,37 @@ namespace MeditateBook.DataAccess
                         {
                             Id = ArticleImage.id,
                             IdArticle = ArticleImage.id_article,
-                            ImagePath = ArticleImage.image_path
+                            ImagePath = ArticleImage.image_path,
+                            Name = ArticleImage.name
+                        };
+                        result.Add(newAttach);
+                    }
+                    return result;
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                return result;
+            }
+        }
+
+        public static List<DBO.ArticleImage> GetListWithWord(string word)
+        {
+            List<DBO.ArticleImage> result = new List<DBO.ArticleImage>();
+            try
+            {
+                using (MeditateBookEntities bdd = new MeditateBookEntities())
+                {
+                    List<T_Article_Image> list = bdd.T_Article_Image.Where(x => x.name.ToLower().Contains(word)).ToList();
+                    foreach (T_Article_Image ArticleImage in list)
+                    {
+                        DBO.ArticleImage newAttach = new DBO.ArticleImage()
+                        {
+                            Id = ArticleImage.id,
+                            IdArticle = ArticleImage.id_article,
+                            ImagePath = ArticleImage.image_path,
+                            Name = ArticleImage.name
                         };
                         result.Add(newAttach);
                     }

@@ -11,7 +11,6 @@ namespace MeditateBook.Controllers
     {
         public ActionResult Index()
         {
-            System.Diagnostics.Debug.WriteLine(Thread.CurrentThread.CurrentUICulture);
             return View();
         }
 
