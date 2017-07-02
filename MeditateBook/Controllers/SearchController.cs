@@ -5,7 +5,7 @@ namespace MeditateBook.Controllers
 {
     public class SearchController : _BaseController
     {
-        // GET: Search
+        // POST: Search
         public ActionResult Index(string searchString)
         {
             SearchViewModel model = new SearchViewModel();

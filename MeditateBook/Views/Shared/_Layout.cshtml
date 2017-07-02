@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - @MeditateBook.Resources.Views.Shared._Layout.Title</title>
@@ -16,10 +16,11 @@
             <div class="container">
                 <div class="nav-left">
                     @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Title, "Index", "Home", new { area = "" }, new { @class = "nav-item" })
-                    @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Home, "Index", "Home", new { @class = "nav-item" })
-                    @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Articles, "Index", "Articles", new { @class = "nav-item" })
-                    <!--@Html.ActionLink("Ajouter Article", "EditArticle", "EditArticle", new { @class = "nav-item" })
-                --></div>
+                    @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Home, "Index", "Home", null, new { @class = "nav-item" })
+                    @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Articles, "Index", "Articles", null, new { @class = "nav-item" })
+                    <!--@Html.ActionLink("Ajouter Article", "EditArticle", "EditArticle", null, new { @class = "nav-item" })
+                -->
+                </div>
                 <div class="nav-center">
                     @using (Html.BeginForm("Index", "Search", FormMethod.Post, new { @class = "nav-item" }))
                     {
