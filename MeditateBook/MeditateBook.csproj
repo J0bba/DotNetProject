@@ -239,9 +239,6 @@
     </Compile>
     <Compile Include="DataAccess\Language.cs" />
     <Compile Include="DataAccess\Message.cs" />
-    <Compile Include="DataAccess\sysdiagrams.cs">
-      <DependentUpon>DB_Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataAccess\Translation.cs" />
     <Compile Include="DataAccess\T_Article.cs">
       <DependentUpon>DB_Model.tt</DependentUpon>
@@ -310,6 +307,16 @@
     </Compile>
     <Compile Include="Resources\Views\Articles\_Articles.en.Designer.cs">
       <DependentUpon>_Articles.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Manage\_Manage.Designer.cs">
+      <DependentUpon>_Manage.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Manage\_Manage.en.Designer.cs">
+      <DependentUpon>_Manage.en.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -395,12 +402,7 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_SelectLanguage.cshtml" />
@@ -411,6 +413,7 @@
     <Content Include="Views\EditArticle\EditArticle.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -459,6 +462,14 @@
     <EmbeddedResource Include="Resources\Views\Articles\_Articles.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>_Articles.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Manage\_Manage.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_Manage.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Manage\_Manage.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_Manage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Search\_Search.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

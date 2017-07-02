@@ -11,28 +11,26 @@
 
 </head>
 <body>
-    <div class="hero-head">
-        <header class="nav">
-            <div class="container">
-                <div class="nav-left">
-                    @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Title, "Index", "Home", new { area = "" }, new { @class = "nav-item" })
-                    @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Home, "Index", "Home", null, new { @class = "nav-item" })
-                    @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Articles, "Index", "Articles", null, new { @class = "nav-item" })
-                    @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Messages, "Index", "Message", null, new { @class = "nav-item" })
-                    <!--@Html.ActionLink("Ajouter Article", "EditArticle", "EditArticle", null, new { @class = "nav-item" })
-                -->
-                </div>
-                <div class="nav-center">
-                    @using (Html.BeginForm("Index", "Search", FormMethod.Post, new { @class = "nav-item" }))
-                    {
-                        @Html.TextBox("searchString")
-                        <button type="submit" name="search" class="button is-primary">Chercher</button>
-                    }
-                </div>
-                @Html.Partial("_LoginPartial")
+    <nav class="nav has-shadow">
+        <div class="container">
+            <div class="nav-left">
+                @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Title, "Index", "Home", new { area = "" }, new { @class = "nav-item" })
+                @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Home, "Index", "Home", null, new { @class = "nav-item" })
+                @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Articles, "Index", "Articles", null, new { @class = "nav-item" })
+                @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Messages, "Index", "Message", null, new { @class = "nav-item" })
+                <!--@Html.ActionLink("Ajouter Article", "EditArticle", "EditArticle", null, new { @class = "nav-item" })
+            -->
             </div>
-        </header>
-    </div>
+            <div class="nav-center">
+                @using (Html.BeginForm("Index", "Search", FormMethod.Post, new { @class = "nav-item" }))
+                {
+                    @Html.TextBox("searchString")
+                    <button type="submit" name="search" class="button is-primary">Chercher</button>
+                }
+            </div>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </nav>
 
     <div class="container body-content">
         @RenderBody()

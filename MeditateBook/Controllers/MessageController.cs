@@ -18,9 +18,9 @@ namespace MeditateBook.Controllers
             foreach (var message in messages)
             {
                 if (message.IdReceiver != userId)
-                    addToConv(message, BusinessManagement.User.GetUserByUd(message.IdReceiver), ref conversations);
+                    addToConv(message, BusinessManagement.User.GetUserById(message.IdReceiver), ref conversations);
                 else 
-                    addToConv(message, BusinessManagement.User.GetUserByUd(message.IdSender), ref conversations);
+                    addToConv(message, BusinessManagement.User.GetUserById(message.IdSender), ref conversations);
             }
             System.Diagnostics.Debug.WriteLine("starting to print");
             foreach (var conv in conversations)
@@ -57,7 +57,7 @@ namespace MeditateBook.Controllers
 
         public ActionResult Conversation(int friend_id)
         {
-            ViewBag.sender = BusinessManagement.User.GetUserByUd(friend_id);
+            ViewBag.sender = BusinessManagement.User.GetUserById(friend_id);
             
             return View();
         }

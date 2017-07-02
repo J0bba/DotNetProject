@@ -64,7 +64,6 @@ namespace MeditateBook.BusinessManagement
                     if (!isInList(article, result))
                         result.Add(article);
                 }
-
             }
             return result;
         }

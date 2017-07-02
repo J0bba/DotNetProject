@@ -43,7 +43,7 @@ namespace MeditateBook.BusinessManagement
             return DataAccess.User.UpdateUser(user);
         }
 
-        public static DBO.User GetUserByUd(long id)
+        public static DBO.User GetUserById(long id)
         {
             DBO.User user = DataAccess.User.GetUserById(id);
             user.Password = Decrypt(user.Password);
