@@ -1,0 +1,50 @@
+﻿@using MeditateBook.Models
+@model EditArticleModel
+@{
+    ViewBag.Title = "Ajouter un Article";
+}
+<h2>@ViewBag.Title.</h2>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <section id="EditArticleForm">
+            @using (Html.BeginForm("Submit", "Articles", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4>Editer un Article</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Title, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Content, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => m.Content, new { @class = "ckeditor", @id = "content" })
+                        @Html.ValidationMessageFor(m => m.Content, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Soumettre" class="btn btn-default" />
+                    </div>
+                </div>
+                @* Activer ceci une fois que la confirmation de votre compte est activée pour la fonctionnalité de réinitialisation du mot de passe
+                    <p>
+                        @Html.ActionLink("Vous avez oublié votre mot de passe ?", "ForgotPassword")
+                    </p>*@
+            }
+        </section>
+    </div>
+    <div class="col-md-2">
+        <!--<section id="socialLoginForm">
+            @*Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })*@
+        </section> -->
+    </div>
+</div>
+
+
