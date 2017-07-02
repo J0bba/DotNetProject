@@ -1,0 +1,9 @@
+﻿@model MeditateBook.Models.SearchViewModel
+@{
+    ViewBag.Title = MeditateBook.Resources.Views.Search._Search.Search;
+}
+
+<div class="row">
+    <h2>@Html.Raw(@MeditateBook.Resources.Views.Search._Search.SearchResult)</h2>
+    <p>@Model.searchedText</p>
+</div>

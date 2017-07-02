@@ -214,6 +214,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\_BaseController.cs" />
     <Compile Include="CustomMemberShip.cs" />
     <Compile Include="DataAccess\Article.cs" />
@@ -283,6 +284,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\SwitchLanguageHelper.cs" />
+    <Compile Include="Models\SearchViewModels.cs" />
     <Compile Include="Models\ArticlesViewModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EditArticleModels.cs" />
@@ -309,6 +311,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Resources\Views\Search\_Search.Designer.cs">
+      <DependentUpon>_Search.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Search\_Search.en.Designer.cs">
+      <DependentUpon>_Search.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\Views\Shared\_Layout.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -324,6 +336,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bulma.css" />
     <Content Include="DataAccess\DB_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB_Model.edmx</DependentUpon>
@@ -394,6 +407,7 @@
     <Content Include="Views\Articles\Article.cshtml" />
     <Content Include="Views\Articles\Submit.cshtml" />
     <Content Include="Views\EditArticle\EditArticle.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -442,6 +456,14 @@
     <EmbeddedResource Include="Resources\Views\Articles\_Articles.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>_Articles.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Search\_Search.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_Search.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Search\_Search.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_Search.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Shared\_Layout.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
