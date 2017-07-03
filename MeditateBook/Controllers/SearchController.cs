@@ -1,4 +1,5 @@
 ﻿using MeditateBook.Models;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace MeditateBook.Controllers
@@ -8,10 +9,8 @@ namespace MeditateBook.Controllers
         // POST: Search
         public ActionResult Index(string searchString)
         {
-            SearchViewModel model = new SearchViewModel();
-            model.searchedText = searchString;
-            model.Results = BusinessManagement.Article.GetListArticleBySearch(searchString);
-            return View(model);
+            List<DBO.Article> articles = BusinessManagement.Article.GetListArticleBySearch(searchString);
+            return View(articles);
         }
     }
 }

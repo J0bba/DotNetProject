@@ -20,10 +20,11 @@
                 @Html.ActionLink("Ajouter Article", "EditArticle", "Articles", null, new { @class = "nav-item" })
             </div>
             <div class="nav-center">
-                @using (Html.BeginForm("Index", "Search", FormMethod.Post, new { @class = "nav-item" }))
+               
+                @using (Html.BeginForm("Index", "Search", FormMethod.Get, new { @class = "nav-item" }))
                 {
-                    @Html.TextBox("searchString")
-                    <button type="submit" name="search" class="button is-primary">Chercher</button>
+                    @Html.TextBox("searchString");
+                    <button type="submit" name="search" class="button is-primary">@MeditateBook.Resources.Views.Shared._Layout.searchButton</button>
                 }
             </div>
             @Html.Partial("_LoginPartial")

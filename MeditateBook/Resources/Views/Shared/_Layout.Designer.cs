@@ -133,7 +133,16 @@ namespace MeditateBook.Resources.Views.Shared {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à MeditateBook FR.
+        ///   Recherche une chaîne localisée semblable à Chercher.
+        /// </summary>
+        public static string searchButton {
+            get {
+                return ResourceManager.GetString("searchButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à MeditateBook.
         /// </summary>
         public static string Title {
             get {

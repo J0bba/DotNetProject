@@ -50,6 +50,8 @@ namespace MeditateBook.BusinessManagement
             foreach (var word in words)
             {
                 result = GetListArticleWithText(word);
+                foreach (DBO.Article res in result)
+                    System.Diagnostics.Debug.WriteLine(res.Title);
                 List<DBO.ArticleAttach> attachs = ArticleAttach.GetListWithWord(word);
                 foreach(var attach in attachs)
                 {

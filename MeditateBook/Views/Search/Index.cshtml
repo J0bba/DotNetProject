@@ -1,9 +1,29 @@
-﻿@model MeditateBook.Models.SearchViewModel
+﻿@model List<MeditateBook.DBO.Article>
 @{
     ViewBag.Title = MeditateBook.Resources.Views.Search._Search.Search;
 }
-
-<div class="row">
-    <h2>@Html.Raw(@MeditateBook.Resources.Views.Search._Search.SearchResult)</h2>
-    <p>@Model.searchedText</p>
-</div>
+<br />
+<h1>@MeditateBook.Resources.Views.Search._Search.Search : @Request["searchString"]</h1>
+<section class="section">
+    @foreach (MeditateBook.DBO.Article article in Model)
+    {
+        MeditateBook.DBO.User creator = MeditateBook.BusinessManagement.User.GetUserById(article.IdCreator);
+        <div>
+            <div style="display: inline; text-align: left">
+                <a href="@Url.Action("Article", "Articles", new { id = article.Id })">
+                    @article.Title
+                </a>
+            </div>
+            @MeditateBook.Resources.Views.Search._Search.by_label
+            <div style="display:inline; text-align:right">
+                <a href="@Url.Action("Index", "Profile", new { id = article.IdCreator })">
+                    @creator.Firstname @creator.Lastname
+                </a>
+            </div>
+        </div>
+        <div>
+            @article.Content
+        </div>
+        <hr />
+    }
+</section>

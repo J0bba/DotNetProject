@@ -61,87 +61,16 @@ namespace MeditateBook.Resources.Views.Search {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;root&gt;
-        ///  &lt;!-- 
-        ///    Microsoft ResX Schema 
-        ///    
-        ///    Version 2.0
-        ///    
-        ///    The primary goals of this format is to allow a simple XML format 
-        ///    that is mostly human readable. The generation and parsing of the 
-        ///    various data types are done through the TypeConverter classes 
-        ///    associated with the data types.
-        ///    
-        ///    Example:
-        ///    
-        ///    ... ado.net/XML headers &amp; schema ...
-        ///    &lt;resheader name=&quot;resmimetype&quot;&gt;text/microsoft-resx&lt;/resheader&gt;
-        ///    &lt;resheader n [le reste de la chaîne a été tronqué]&quot;;.
+        ///   Recherche une chaîne localisée semblable à by.
         /// </summary>
-        public static string _Layout {
+        public static string by_label {
             get {
-                return ResourceManager.GetString("_Layout", resourceCulture);
+                return ResourceManager.GetString("by_label", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à //------------------------------------------------------------------------------
-        ///// &lt;auto-generated&gt;
-        /////     Ce code a été généré par un outil.
-        /////     Version du runtime :4.0.30319.42000
-        /////
-        /////     Les modifications apportées à ce fichier peuvent provoquer un comportement incorrect et seront perdues si
-        /////     le code est régénéré.
-        ///// &lt;/auto-generated&gt;
-        /////------------------------------------------------------------------------------
-        ///
-        ///namespace MeditateBook.Resources.Views.Shared {
-        ///    using System;
-        /// [le reste de la chaîne a été tronqué]&quot;;.
-        /// </summary>
-        public static string _Layout_Designer {
-            get {
-                return ResourceManager.GetString("_Layout_Designer", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;root&gt;
-        ///  &lt;!-- 
-        ///    Microsoft ResX Schema 
-        ///    
-        ///    Version 2.0
-        ///    
-        ///    The primary goals of this format is to allow a simple XML format 
-        ///    that is mostly human readable. The generation and parsing of the 
-        ///    various data types are done through the TypeConverter classes 
-        ///    associated with the data types.
-        ///    
-        ///    Example:
-        ///    
-        ///    ... ado.net/XML headers &amp; schema ...
-        ///    &lt;resheader name=&quot;resmimetype&quot;&gt;text/microsoft-resx&lt;/resheader&gt;
-        ///    &lt;resheader n [le reste de la chaîne a été tronqué]&quot;;.
-        /// </summary>
-        public static string _Layout_en {
-            get {
-                return ResourceManager.GetString("_Layout_en", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string _Layout_en_Designer {
-            get {
-                return ResourceManager.GetString("_Layout_en_Designer", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Recherche.
+        ///   Recherche une chaîne localisée semblable à Search.
         /// </summary>
         public static string Search {
             get {
@@ -150,7 +79,7 @@ namespace MeditateBook.Resources.Views.Search {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Résultats de la recherche.
+        ///   Recherche une chaîne localisée semblable à Search results.
         /// </summary>
         public static string SearchResult {
             get {

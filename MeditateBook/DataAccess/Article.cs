@@ -178,7 +178,7 @@ namespace MeditateBook.DataAccess
             {
                 using (MeditateBookEntities bdd = new MeditateBookEntities())
                 {
-                    List<T_Article> list = bdd.T_Article.Where(x => x.content.Contains(word)).ToList();
+                    List<T_Article> list = bdd.T_Article.Where(x => x.content.Contains(word) || x.title.Contains(word)).ToList();
                     foreach (T_Article article in list)
                     {
                         DBO.Article newArticle = new DBO.Article()
