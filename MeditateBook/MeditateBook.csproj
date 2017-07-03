@@ -203,6 +203,7 @@
     <Compile Include="BusinessManagement\ArticleAttach.cs" />
     <Compile Include="BusinessManagement\ArticleImage.cs" />
     <Compile Include="BusinessManagement\Comment.cs" />
+    <Compile Include="BusinessManagement\Language.cs" />
     <Compile Include="BusinessManagement\Message.cs" />
     <Compile Include="BusinessManagement\Translation.cs" />
     <Compile Include="BusinessManagement\User.cs" />

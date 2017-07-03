@@ -71,5 +71,58 @@ namespace MeditateBook.DataAccess
                 return false;
             }
         }
+
+        public static List<DBO.Language> GetListLanguage()
+        {
+            List<DBO.Language> result = new List<DBO.Language>();
+            try
+            {
+                using (MeditateBookEntities bdd = new MeditateBookEntities())
+                {
+                    List<T_Language> list = bdd.T_Language.ToList();
+                    foreach (T_Language language in list)
+                    {
+                        DBO.Language newLang = new DBO.Language()
+                        {
+                            Name = language.name,
+                            Id = language.id,
+                            ShortName = language.shortname
+                        };
+                        result.Add(newLang);
+                    }
+                    return result;
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                return result;
+            }
+        }
+
+        public static DBO.Language GetLanguageById(int id)
+        {
+            try
+            {
+                using (MeditateBookEntities bdd = new MeditateBookEntities())
+                {
+                    T_Language language = bdd.T_Language.Where(x => x.id == id).FirstOrDefault();
+
+                        DBO.Language newLang = new DBO.Language()
+                        {
+                            Name = language.name,
+                            Id = language.id,
+                            ShortName = language.shortname
+                        };
+
+                    return newLang;
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                return null;
+            }
+        }
     }
 }

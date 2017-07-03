@@ -7,20 +7,22 @@
         @foreach (MeditateBook.DBO.Conversation conv in Model)
         {
             <article class="message">
-                <div class="message-header">
-                    <p>@conv.FriendName (@conv.LastMessageDate.ToShortDateString())</p>
-                    <button class="delete"></button>
-                </div>
-                <div class="message-body">
-                    @if (!conv.wasRead)
-                    {
-                        <strong>@conv.LastMessageContent</strong>
-                    }
-                    else
-                    {
-                        @conv.LastMessageContent
-                    }
-                </div>
+                    <div class="message-header">
+                        <p>@conv.FriendName (@conv.LastMessageDate.ToShortDateString())</p>
+                        <button class="delete"></button>
+                    </div>
+                <a href="@Url.Action("Conversation", "Message", new { friend_id = conv.FriendId})">
+                    <div class="message-body">
+                        @if (!conv.wasRead)
+                        {
+                            <strong>@conv.LastMessageContent</strong>
+                        }
+                        else
+                        {
+                            @conv.LastMessageContent
+                        }
+                    </div>
+                </a>
             </article>
         }
     </div>
