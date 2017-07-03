@@ -1,17 +1,9 @@
 ﻿@model MeditateBook.Models.ManageTranslationsModel
 
-
-<div class="columns">
-    <div class="column is-3">
-        <aside class="menu">
-            <p class="menu-label">
-                General
-            </p>
-            <ul class="menu-list">
-                <li>@Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.ChangePassword, "ChangePassword", "Manage")</li>
-            </ul>
-            @if (Model.User.Role >= MeditateBook.BusinessManagement.UserRoles.Roles.Admin)
-            {
+<section class="section">
+    <div class="columns">
+        <div class="column is-3">
+            <aside class="menu">
                 <p class="menu-label">
                     Administration
                 </p>
@@ -19,46 +11,46 @@
                     <li>@Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.ManageUsers, "ManageUsers", "Manage")</li>
                     <li>@Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.ManageTranslations, "ManageTranslations", "Manage", new { @class = "is-active" })</li>
                 </ul>
-            }
-        </aside>
-    </div>
+            </aside>
+        </div>
 
-    <div class="column">
-        <section class="section">
-            <div class="container">
-                <h1 class="title">@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.ManageTranslations)</h1>
+        <div class="column">
+            <section class="section">
+                <div class="container">
+                    <h1 class="title">@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.ManageTranslations)</h1>
 
-                <table>
-                    <tr>
-                        <th>
-                            @Html.Raw(MeditateBook.Resources.Views.Articles._Articles.Title)
-                        </th>
-                        <th>
-                            @Html.Raw(MeditateBook.Resources.Views.Manage._Manage.TranslationLanguage)
-                        </th>
-                        <th></th>
-                    </tr>
-
-
-                    @foreach (var item in Model.Translations)
-                    {
+                    <table>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdArticle)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdLanguage)
-                            </td>
-                            <td>
-                                @Html.ActionLink("Validate", "Validate", new { id = item.Id })  |
-                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                            </td>
+                            <th>
+                                @Html.Raw(MeditateBook.Resources.Views.Articles._Articles.Title)
+                            </th>
+                            <th>
+                                @Html.Raw(MeditateBook.Resources.Views.Manage._Manage.TranslationLanguage)
+                            </th>
+                            <th></th>
                         </tr>
-                    }
+
+
+                        @foreach (var item in Model.Translations)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IdArticle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IdLanguage)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Validate", "Validate", new { id = item.Id })  |
+                                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                </td>
+                            </tr>
+                        }
 
                     </table>
-</div>
-        </section>
+                </div>
+            </section>
+        </div>
     </div>
-</div>
+</section>

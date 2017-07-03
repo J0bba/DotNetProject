@@ -1,40 +1,32 @@
 ﻿@model MeditateBook.Models.ProfileViewModel
 
 
-<div class="columns">
-    <div class="column is-3">
-        <aside class="menu">
-            <p class="menu-label">
-                General
-            </p>
-            @if (Model.User.Id == Model.idCurrentUser)
-            {
-                <ul class="menu-list">
-                    <li>@Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.ChangePassword, "ChangePassword", "Manage")</li>
-                </ul>
-            }
-            @if (Model.User.Role >= MeditateBook.BusinessManagement.UserRoles.Roles.Admin)
-            {
+<section class="section">
+    <div class="columns">
+    
+        <div class="column is-3">
+        @if (Model.User.Id == Model.idCurrentUser)
+        {
+            <aside class="menu">
                 <p class="menu-label">
-                    Administration
+                    General
                 </p>
-                <ul class="menu-list">
-                    <li>@Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.ManageUsers, "ManageUsers", "Manage")</li>
-                    <li>@Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.ManageTranslations, "ManageTranslations", "Manage")</li>
-                </ul>
-            }
-        </aside>
-    </div>
+                    <ul class="menu-list">
+                        <li>@Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.ChangePassword, "ChangePassword", "Manage")</li>
+                    </ul>
+            </aside>
+        }
+        </div>
+        <div class="column">
+            <section class="section">
+                <div class="container">
+                    <h1 class="title">@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.Informations)</h1>
 
-    <div class="column">
-        <section class="section">
-            <div class="container">
-                <h1 class="title">@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.Informations)</h1>
-
-                <p>@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.Firstname) : @Model.User.Firstname</p>
-                <p>@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.Lastname) : @Model.User.Lastname</p>
-                <p>@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.Role) : @Model.User.Role</p>
-            </div>
-        </section>
+                    <p>@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.Firstname) : @Model.User.Firstname</p>
+                    <p>@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.Lastname) : @Model.User.Lastname</p>
+                    <p>@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.Role) : @Model.User.Role</p>
+                </div>
+            </section>
+        </div>
     </div>
-</div>
+</section>
