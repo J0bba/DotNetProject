@@ -7,4 +7,16 @@
     <h2>@Html.Raw(Model.Article.Title) (@Html.Raw(Model.Article.CreatedDate.ToShortDateString()))</h2>
 
    @Html.Raw(Model.Article.Content)
+    <form>
+        @*@using (Html.BeginForm("EditTraduction", "Articles", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Proposer Traduction" class="btn btn-default" />
+                </div>
+            </div>
+        }*@
+        @Html.ActionLink("Article", "EditTraduction", new { id = Model.Article.Id }, null)
+    </form>
+        
 </div>

@@ -42,5 +42,12 @@ namespace MeditateBook.Controllers
         {
             return View();
         }
+        
+        public ActionResult EditTraduction(long id)
+        {
+            DBO.Article article = BusinessManagement.Article.GetArticle(id);
+            TradArticleModel tradModel = new TradArticleModel(article);
+            return View(tradModel);
+        }
     }
 }

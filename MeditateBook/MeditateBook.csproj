@@ -310,6 +310,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Resources\Views\Articles\_TradArticle.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_TradArticle.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Articles\_TradArticle.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_TradArticle.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Views\Manage\_Manage.Designer.cs">
       <DependentUpon>_Manage.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -416,6 +426,7 @@
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\ManageUsers.cshtml" />
     <Content Include="Views\Manage\ManageTranslations.cshtml" />
+    <Content Include="Views\Articles\EditTraduction.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -464,6 +475,14 @@
     <EmbeddedResource Include="Resources\Views\Articles\_Articles.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>_Articles.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Articles\_TradArticle.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_TradArticle.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Articles\_TradArticle.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_TradArticle.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Manage\_Manage.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
