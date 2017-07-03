@@ -1,0 +1,38 @@
+﻿@model MeditateBook.Models.EditRoleViewModel
+
+<section class="section">
+    <div class="columns">
+        <div class="column is-3">
+            <aside class="menu">
+                <p class="menu-label">
+                    Administration
+                </p>
+                <ul class="menu-list">
+                    <li>@Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.ManageUsers, "ManageUsers", "Manage")</li>
+                    <li>@Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.ManageTranslations, "ManageTranslations", "Manage")</li>
+                </ul>
+            </aside>
+        </div>
+
+        <div class="column">
+            <section class="section">
+                <div class="container">
+                    <h1 class="title">@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.ChangePassword)</h1>
+
+                    @using (Html.BeginForm("EditUser", "Manage", new { id = Model.User.Id }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.EnumDropDownListFor(m => m.Enum)
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Soumettre" class="btn btn-default" />
+                            </div>
+                        </div>
+                    }
+                    
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
