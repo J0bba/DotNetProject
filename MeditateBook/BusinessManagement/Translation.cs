@@ -22,9 +22,19 @@ namespace MeditateBook.BusinessManagement
             return DataAccess.Translation.UpdateTranslation(translation);
         }
 
+        public static DBO.Translation GetTranslationById(long id)
+        {
+            return DataAccess.Translation.GetTranslationById(id);
+        }
+
         public static List<DBO.Translation> GetListTranslationByArticle(long id_article)
         {
             return DataAccess.Translation.GetListTranslationByArticle(id_article);
+        }
+
+        public static List<DBO.Translation> GetListValidatedTranslationByArticle(long id_article)
+        {
+            return DataAccess.Translation.GetListValidatedTranslationByArticle(id_article);
         }
 
         public static List<DBO.Translation> GetListNonValidatedTranslation()

@@ -80,6 +80,36 @@ namespace MeditateBook.DataAccess
             }
         }
 
+        public static DBO.Translation GetTranslationById(long id)
+        {
+            try
+            {
+                using (MeditateBookEntities bdd = new MeditateBookEntities())
+                {
+                    T_Translation translation = bdd.T_Translation.Where(x => x.id == id).FirstOrDefault();
+                    if (translation != null)
+                    {
+                        DBO.Translation newTranslation = new DBO.Translation()
+                        {
+                            Content = translation.content,
+                            Id = translation.id,
+                            IdArticle = translation.id_article,
+                            IdLanguage = translation.id_language,
+                            IdTranslator = translation.id_translator,
+                            Validated = translation.validated
+                        };
+                        return newTranslation;
+                    }
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                return null;
+            }
+        }
+
         public static List<DBO.Translation> GetListTranslationByArticle(long id_article)
         {
             List<DBO.Translation> result = new List<DBO.Translation>();
@@ -88,6 +118,37 @@ namespace MeditateBook.DataAccess
                 using (MeditateBookEntities bdd = new MeditateBookEntities())
                 {
                     List<T_Translation> translations = bdd.T_Translation.Where(x => x.id_article == id_article).ToList();
+                    foreach (T_Translation translation in translations)
+                    {
+                        DBO.Translation newTranslation = new DBO.Translation()
+                        {
+                            Content = translation.content,
+                            Id = translation.id,
+                            IdArticle = translation.id_article,
+                            IdLanguage = translation.id_language,
+                            IdTranslator = translation.id_translator,
+                            Validated = translation.validated
+                        };
+                        result.Add(newTranslation);
+                    }
+                    return result;
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                return result;
+            }
+        }
+
+        public static List<DBO.Translation> GetListValidatedTranslationByArticle(long id_article)
+        {
+            List<DBO.Translation> result = new List<DBO.Translation>();
+            try
+            {
+                using (MeditateBookEntities bdd = new MeditateBookEntities())
+                {
+                    List<T_Translation> translations = bdd.T_Translation.Where(x => x.id_article == id_article && x.validated == true).ToList();
                     foreach (T_Translation translation in translations)
                     {
                         DBO.Translation newTranslation = new DBO.Translation()

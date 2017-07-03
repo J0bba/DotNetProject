@@ -148,4 +148,7 @@
   <data name="AddArticle" xml:space="preserve">
     <value>Ajouter un Article</value>
   </data>
+  <data name="TranslatedBy" xml:space="preserve">
+    <value>traduit par</value>
+  </data>
 </root>

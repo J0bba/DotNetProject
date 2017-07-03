@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.AccessControl;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,15 +16,26 @@ namespace MeditateBook.Controllers
         public ActionResult Index()
         {
             ArticlesListViewModel model = new ArticlesListViewModel();
+            model.CurrentLang = Thread.CurrentThread.CurrentUICulture.ToString().ToLower();
             model.ListArticle = BusinessManagement.Article.GetListArticle();
+            List<List<DBO.Translation>> translations = new List<List<DBO.Translation>>();
+            if (!model.CurrentLang.Equals("fr-fr"))
+                foreach (var article in model.ListArticle)
+                    translations.Add(BusinessManagement.Translation.GetListValidatedTranslationByArticle(article.Id));
+            model.ListTranslations = translations;
             return View(model);
         }
 
-        public ActionResult Article(int id = 0)
+        public ActionResult Article(int id, int translation_id = -1)
         {
             ArticleViewModel model = new ArticleViewModel();
             model.Article = BusinessManagement.Article.GetArticle(id);
             model.User = BusinessManagement.User.GetUserById(model.Article.IdCreator);
+            if (translation_id != -1)
+            {
+                model.Translation = BusinessManagement.Translation.GetTranslationById(translation_id);
+                model.Translator = BusinessManagement.User.GetUserById(model.Translation.IdTranslator);
+            }
             return View(model);
         }
         

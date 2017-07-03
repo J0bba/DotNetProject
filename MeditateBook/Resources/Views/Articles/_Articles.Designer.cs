@@ -193,5 +193,14 @@ namespace MeditateBook.Resources.Views.Articles {
                 return ResourceManager.GetString("Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à traduit par.
+        /// </summary>
+        public static string TranslatedBy {
+            get {
+                return ResourceManager.GetString("TranslatedBy", resourceCulture);
+            }
+        }
     }
 }
