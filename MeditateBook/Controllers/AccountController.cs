@@ -89,10 +89,10 @@ namespace MeditateBook.Controllers
                 //case SignInStatus.RequiresVerification:
                 //    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case false:
-                    ModelState.AddModelError("", "Tentative de connexion non valide.");
+                    ModelState.AddModelError("", Resources.Views.Account.Login.invalid_credentials);
                     return View(model);
                 default:
-                    ModelState.AddModelError("", "Tentative de connexion non valide.");
+                    ModelState.AddModelError("", Resources.Views.Account.Login.login_error);
                     return View(model);
             }
         }

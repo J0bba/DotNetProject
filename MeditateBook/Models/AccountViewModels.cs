@@ -49,13 +49,13 @@ namespace MeditateBook.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Courrier électronique")]
+        [Display(Name = "email_field", ResourceType = typeof(Resources.Views.Account.Login))]
         [EmailAddress]
         public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Mot de passe")]
+        [Display(Name = "password_field", ResourceType = typeof(Resources.Views.Account.Login))]
         public string Password { get; set; }
 
         [Display(Name = "Mémoriser le mot de passe ?")]
@@ -66,26 +66,26 @@ namespace MeditateBook.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Courrier électronique")]
+        [Display(Name = "email_field", ResourceType = typeof(Resources.Views.Account.Register))]
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "La chaîne {0} doit comporter au moins {2} caractères.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessageResourceName = "password_require", ErrorMessageResourceType = typeof(Resources.Views.Account.Register))]
         [DataType(DataType.Password)]
-        [Display(Name = "Mot de passe")]
+        [Display(Name = "password_field", ResourceType =typeof(Resources.Views.Account.Register))]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirmer le mot de passe ")]
-        [Compare("Password", ErrorMessage = "Le mot de passe et le mot de passe de confirmation ne correspondent pas.")]
+        [Display(Name = "confirm_field", ResourceType =typeof(Resources.Views.Account.Register))]
+        [Compare("Password", ErrorMessageResourceName = "confirm_require", ErrorMessageResourceType = typeof(Resources.Views.Account.Register))]
         public string ConfirmPassword { get; set; }
 
         [Required]
-        [Display(Name = "Firstname")]
+        [Display(Name = "firstname_field", ResourceType =typeof(Resources.Views.Account.Register))]
         public string Firstname { get; set; }
 
         [Required]
-        [Display(Name = "Lastname")]
+        [Display(Name = "lastname_field", ResourceType =typeof(Resources.Views.Account.Register))]
         public string Lastname { get; set; }
     }
 
