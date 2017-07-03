@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Web;
 using System.Web.Mvc;
 
@@ -25,10 +26,8 @@ namespace MeditateBook.Controllers
             model.User = BusinessManagement.User.GetUserById(model.Article.IdCreator);
             return View(model);
         }
+        
 
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        [HttpPost, ValidateInput(false)]
         public ActionResult Submit()
         {
             return View();
@@ -114,10 +113,11 @@ namespace MeditateBook.Controllers
                         string path = System.IO.Path.Combine(
                                                Server.MapPath("~/images/article"), pic);
 
-                        if (!Directory.Exists(path))
+                        if (!Directory.Exists("~/images/article"))
                         {
-                            Directory.CreateDirectory(path);
+                            Directory.CreateDirectory("~/images/article");
                         }
+
                         // file is uploaded
                         file.SaveAs(path);
                         DBO.ArticleImage image = new DBO.ArticleImage();
@@ -125,9 +125,8 @@ namespace MeditateBook.Controllers
                         image.Name = pic;
                         image.IdArticle = article.Id;
                         BusinessManagement.ArticleImage.CreateArticleImage(image);
-            }
-
-                    return View(model);
+                    }
+                    return RedirectToAction("Submit", "Article"); ;
                 case false:
                     ModelState.AddModelError("", "Insertion d'article invalide");
                     return View(model);
