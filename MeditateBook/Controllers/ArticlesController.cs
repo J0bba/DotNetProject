@@ -47,14 +47,15 @@ namespace MeditateBook.Controllers
         {
             DBO.Article article = BusinessManagement.Article.GetArticle(id);
             TradArticleModel tradModel = new TradArticleModel(article);
-            //BusinessManagement.
             return View(tradModel);
         }
-
-        public ActionResult SubmitTraduction(TradArticleModel model)
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        [HttpPost, ValidateInput(false)]
+        public ActionResult SubmitTraduction(TradArticleModel model, long id)
         {
 
-            DBO.Translation translation = new DBO.Translation { Content = model.content, IdArticle = model.id, IdLanguage = 1 };
+            DBO.Translation translation = new DBO.Translation { Content = model.Content, IdArticle = model.id, IdLanguage = 1 };
             var idCreator = HttpContext.Session["UserID"];
             if (idCreator != null)
                 translation.IdTranslator = (long)idCreator;
