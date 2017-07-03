@@ -116,12 +116,12 @@ namespace MeditateBook.Controllers
                     if (file != null)
                     {
                         string pic = System.IO.Path.GetFileName(file.FileName);
-                        string path = System.IO.Path.Combine(
-                                               Server.MapPath("~/images/article"), pic);
+                        string dir = Server.MapPath("~/images/article");
+                        string path = System.IO.Path.Combine(dir, pic);
 
-                        if (!Directory.Exists("~/images/article"))
+                        if (!Directory.Exists(dir))
                         {
-                            Directory.CreateDirectory("~/images/article");
+                            Directory.CreateDirectory(dir);
                         }
 
                         // file is uploaded
