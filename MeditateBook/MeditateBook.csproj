@@ -461,6 +461,7 @@
     <Content Include="Views\Articles\SubmitTraduction.cshtml" />
     <Content Include="Views\Message\Conversation.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Manage\EditUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -473,7 +474,6 @@
     <Folder Include="Resources\Models\" />
     <Folder Include="Resources\Views\Home\" />
     <Folder Include="Resources\Views\Language\" />
-    <Folder Include="Views\EditArticle\" />
     <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>

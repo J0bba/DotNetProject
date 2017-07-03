@@ -12,6 +12,12 @@ namespace MeditateBook.Models
         public long idCurrentUser;
     }
 
+    public class EditRoleViewModel
+    {
+        public DBO.User User { get; set; }
+        public BusinessManagement.UserRoles.Roles Enum { get; set; }
+    }
+
     public class ChangePasswordModel
     {
         public DBO.User User { get; set; }

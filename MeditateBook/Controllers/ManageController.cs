@@ -56,7 +56,25 @@ namespace MeditateBook.Controllers
 
         public ActionResult EditUser(int id)
         {
+            EditRoleViewModel model = new EditRoleViewModel();
+            model.User = BusinessManagement.User.GetUserById(id);
+            model.Enum = model.User.Role;
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditUser(int id, EditRoleViewModel model)
+        {
+            model.User = BusinessManagement.User.GetUserById(id);
+            model.User.Role = model.Enum;
+            BusinessManagement.User.UpdateUser(model.User);
             return RedirectToAction("ManageUsers", "Manage");
+        }
+
+        public ActionResult ShowUser(int id)
+        {
+            return RedirectToAction("Index", "Profile", new { id = id });
         }
 
         public ActionResult DeleteUser(int id)
