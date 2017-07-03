@@ -90,7 +90,6 @@ namespace MeditateBook.Controllers
             model.User = BusinessManagement.User.GetUserById(Int32.Parse(HttpContext.Session["UserID"].ToString()));
             model.Translations = BusinessManagement.Translation.GetListNonValidatedTranslation();
             List<Tuple<DBO.Article, List<DBO.Language>>> missingTransArticles = BusinessManagement.Article.GetListArticleWithMissingTrans();
-            System.Diagnostics.Debug.WriteLine("Count de trans manquantes : " + missingTransArticles.First().Item2.Count);
             model.missingTransArticles = missingTransArticles;
 
             return View(model);

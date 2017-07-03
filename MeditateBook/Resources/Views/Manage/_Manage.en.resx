@@ -159,4 +159,7 @@
   <data name="User" xml:space="preserve">
     <value>User</value>
   </data>
+  <data name="noMissingLabel" xml:space="preserve">
+    <value>No missing translations</value>
+  </data>
 </root>

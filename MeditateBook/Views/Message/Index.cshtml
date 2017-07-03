@@ -9,7 +9,6 @@
             <article class="message">
                     <div class="message-header">
                         <p>@conv.FriendName (@conv.LastMessageDate.ToShortDateString())</p>
-                        <button class="delete"></button>
                     </div>
                 <a href="@Url.Action("Conversation", "Message", new { friend_id = conv.FriendId})">
                     <div class="message-body">

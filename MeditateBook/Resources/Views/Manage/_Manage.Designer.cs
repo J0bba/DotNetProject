@@ -222,6 +222,15 @@ namespace MeditateBook.Resources.Views.Manage {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Pas de traduction manquante.
+        /// </summary>
+        public static string noMissingLabel {
+            get {
+                return ResourceManager.GetString("noMissingLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Articles avec traduction manquantes.
         /// </summary>
         public static string noTransTitle {
