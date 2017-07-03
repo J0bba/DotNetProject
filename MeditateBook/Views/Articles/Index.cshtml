@@ -3,14 +3,28 @@
     ViewBag.Title = MeditateBook.Resources.Views.Shared._Layout.Articles;
 }
 
-<div class="row">
+<section class="section">
+    <h2 class="title">@Html.Raw(@MeditateBook.Resources.Views.Articles._Articles.ArticleList)</h2>
 
-    <h2>@Html.Raw(@MeditateBook.Resources.Views.Articles._Articles.ArticleList)</h2>
-
-    <ul>
-        @for (int i = 0; i < Model.ListArticle.Count; i++)
+        @foreach (MeditateBook.DBO.Article article in Model.ListArticle)
         {
-            <li>@Html.ActionLink(Model.ListArticle.ElementAt(i).Title, "Article", "Articles", new { id = Model.ListArticle.ElementAt(i).Id }, null)</li>
+            MeditateBook.DBO.User creator = MeditateBook.BusinessManagement.User.GetUserById(article.IdCreator);
+            <div>
+                <div style="display: inline; text-align: left">
+                    <a href="@Url.Action("Article", "Articles", new { id = article.Id })">
+                        @article.Title
+                    </a>
+                </div>
+                @MeditateBook.Resources.Views.Search._Search.by_label
+                <div style="display:inline; text-align:right">
+                    <a href="@Url.Action("Index", "Profile", new { id = article.IdCreator })">
+                        @creator.Firstname @creator.Lastname
+                    </a>
+                </div>
+            </div>
+            <div>
+                @article.Content
+            </div>
+            <hr />
         }
-    </ul>
-</div>
+</section>

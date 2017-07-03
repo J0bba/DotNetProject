@@ -141,15 +141,6 @@ namespace MeditateBook.Resources.Views.Articles {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Ajouter un Article.
-        /// </summary>
-        public static string AddArticle {
-            get {
-                return ResourceManager.GetString("AddArticle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Recherche une chaîne localisée semblable à Liste d&apos;articles.
         /// </summary>
         public static string ArticleList {
@@ -168,11 +159,11 @@ namespace MeditateBook.Resources.Views.Articles {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Retourner à l&apos;accueil.
+        ///   Recherche une chaîne localisée semblable à par.
         /// </summary>
-        public static string BackToIndex {
+        public static string by {
             get {
-                return ResourceManager.GetString("BackToIndex", resourceCulture);
+                return ResourceManager.GetString("by", resourceCulture);
             }
         }
         

@@ -126,6 +126,9 @@
   <data name="Articles" xml:space="preserve">
     <value>Articles</value>
   </data>
+  <data name="by" xml:space="preserve">
+    <value>par</value>
+  </data>
   <data name="BackToIndex" xml:space="preserve">
     <value>Retourner à l'accueil</value>
   </data>
