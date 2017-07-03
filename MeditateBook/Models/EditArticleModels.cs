@@ -51,6 +51,6 @@ namespace MeditateBook.Models
         [Display(Name = "Langue")]
         public int Langue { get; set; }
 
-        public List<DBO.Language> listLangues   ;
+        public List<DBO.Language> listLangues;
     }
 }

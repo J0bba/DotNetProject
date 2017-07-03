@@ -216,6 +216,7 @@
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\_BaseController.cs" />
     <Compile Include="CustomMemberShip.cs" />
@@ -463,6 +464,7 @@
     <Folder Include="Resources\Views\Language\" />
     <Folder Include="Views\EditArticle\" />
     <Folder Include="Views\Language\" />
+    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

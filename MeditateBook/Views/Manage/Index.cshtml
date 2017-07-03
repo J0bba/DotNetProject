@@ -7,9 +7,12 @@
             <p class="menu-label">
                 General
             </p>
+            @if (Model.User.Id == Model.idCurrentUser)
+            {
             <ul class="menu-list">
                 <li>@Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.ChangePassword, "ChangePassword", "Manage")</li>
             </ul>
+            }
             @if (Model.User.Role >= MeditateBook.BusinessManagement.UserRoles.Roles.Admin)
             {
                 <p class="menu-label">
