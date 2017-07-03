@@ -15,14 +15,14 @@
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
-                    @Html.LabelFor(m => m.Title, new { @class = "col-md-2 control-label" })
+                    @Html.Label(@MeditateBook.Resources.Views.Articles._Articles.Title, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
                         @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.Content, new { @class = "col-md-2 control-label" })
+                    @Html.Label(@MeditateBook.Resources.Views.Articles._Articles.Content, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
                         @Html.TextAreaFor(m => m.Content, new { @class = "ckeditor", @id = "content" })
                         @Html.ValidationMessageFor(m => m.Content, "", new { @class = "text-danger" })
@@ -33,7 +33,7 @@
                 @Html.TextAreaFor(m => m.titleOriginal, new { @class = "col-md-2 control-label hidden" })
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Soumettre" class="btn btn-default" />
+                        <input type="submit" value="@MeditateBook.Resources.Views.Articles._Articles.Submit" class="btn btn-default" />
                         @Html.DropDownListFor(m => m.Langue, new SelectList(Model.listLangues, "id", "Name"))
                     </div>
                 </div>
