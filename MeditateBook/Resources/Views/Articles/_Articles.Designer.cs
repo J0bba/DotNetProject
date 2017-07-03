@@ -141,7 +141,7 @@ namespace MeditateBook.Resources.Views.Articles {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Ajouter un Article.
+        ///   Recherche une chaîne localisée semblable à Ajouter un article.
         /// </summary>
         public static string AddArticle {
             get {

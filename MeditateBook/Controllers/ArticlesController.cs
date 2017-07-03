@@ -87,8 +87,7 @@ namespace MeditateBook.Controllers
                     if (idCreator != null)
                         translation.IdTranslator = (long)idCreator;
                     BusinessManagement.Translation.CreateTranslation(translation);
-                    RedirectToAction("SubmitTraduction", "Article");
-                    return View(model);
+                    return RedirectToAction("SubmitTraduction", "Articles");
                 case false:
                     ModelState.AddModelError("", "Insertion de traduction invalide");
                     return View(model);
@@ -137,8 +136,7 @@ namespace MeditateBook.Controllers
                         image.IdArticle = article.Id;
                         BusinessManagement.ArticleImage.CreateArticleImage(image);
                     }
-                    RedirectToAction("Submit", "Article");
-                    return View(model);
+                    return RedirectToAction("Submit", "Articles");
                 case false:
                     ModelState.AddModelError("", "Insertion d'article invalide");
                     return View(model);

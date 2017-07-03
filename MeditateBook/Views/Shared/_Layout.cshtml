@@ -17,7 +17,10 @@
                 @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Title, "Index", "Home", new { area = "" }, new { @class = "nav-item" })
                 @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Home, "Index", "Home", null, new { @class = "nav-item" })
                 @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Articles, "Index", "Articles", null, new { @class = "nav-item" })
-                @Html.ActionLink(MeditateBook.Resources.Views.Articles._Articles.AddArticle, "EditArticle", "Articles", null, new { @class = "nav-item" })
+                @if (Request.IsAuthenticated && Session["User"] != null && ((MeditateBook.DBO.User)Session["User"]).Role >= MeditateBook.BusinessManagement.UserRoles.Roles.Admin)
+                {
+                    @Html.ActionLink(MeditateBook.Resources.Views.Articles._Articles.AddArticle, "EditArticle", "Articles", null, new { @class = "nav-item" })
+                }
             </div>
             <div class="nav-center">
                

@@ -146,7 +146,7 @@
     <value>..\shared\_layout.en.designer.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="AddArticle" xml:space="preserve">
-    <value>Ajouter un Article</value>
+    <value>Ajouter un article</value>
   </data>
   <data name="TranslatedBy" xml:space="preserve">
     <value>traduit par</value>

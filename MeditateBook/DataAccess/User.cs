@@ -144,15 +144,14 @@ namespace MeditateBook.DataAccess
             }
         }
 
-        public static List<DBO.User> GetUsersUnderRole(BusinessManagement.UserRoles.Roles role)
+        public static List<DBO.User> GetUsersUnderRole(long id, BusinessManagement.UserRoles.Roles role)
         {
             List<DBO.User> result = new List<DBO.User>();
             try
             {
                 using (MeditateBookEntities bdd = new MeditateBookEntities())
                 {
-                    
-                        List<T_User> list = bdd.T_User.Where(x => x.role <= (int)role).ToList();
+                    List<T_User> list = bdd.T_User.Where(x => x.id != id && x.role <= (int)role).ToList();
                     foreach (T_User user in list)
                     {
                         DBO.User newUser = new DBO.User()
