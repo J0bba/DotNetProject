@@ -11,7 +11,9 @@ namespace MeditateBook.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            List<DBO.Article> list = BusinessManagement.Article.GetListArticle();
+            list.OrderByDescending(x => x.CreatedDate);
+            return View(list);
         }
 
         public ActionResult About()
