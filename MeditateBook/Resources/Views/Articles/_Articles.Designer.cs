@@ -177,6 +177,15 @@ namespace MeditateBook.Resources.Views.Articles {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à par.
+        /// </summary>
+        public static string by {
+            get {
+                return ResourceManager.GetString("by", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Titre.
         /// </summary>
         public static string Title {

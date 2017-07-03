@@ -20,7 +20,9 @@ namespace MeditateBook.Models
         [Display(Name = "Content")]
         public string Content { get; set; }
 
-        
+        [Display(Name = "Image")]
+        public String ImagePath { get; set; }
+
     }
 
     public class TradArticleModel
@@ -39,7 +41,7 @@ namespace MeditateBook.Models
         public long IdOriginal { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "La chaîne {0} doit comporter au moins {2} caractères.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "La chaîne {0} doit comporter au moins {2} caractères.", MinimumLength = 2)]
         [Display(Name = "Title")]
         public string Title { get; set; }
 
@@ -51,6 +53,7 @@ namespace MeditateBook.Models
         [Display(Name = "Langue")]
         public int Langue { get; set; }
 
+        
         public List<DBO.Language> listLangues;
     }
 }

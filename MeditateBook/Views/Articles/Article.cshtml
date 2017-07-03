@@ -5,13 +5,13 @@
 
 <section class="section">
     <h2 class="title">@Html.Raw(Model.Article.Title)</h2>
-    <div class="card">
+    <div class="card" style="background-color:gainsboro">
         
         <div class="card-content">
             <div class="content">
                 @Html.Raw(Model.Article.Content)
                 <br>
-                <small>@Html.Raw(Model.Article.CreatedDate.ToShortDateString()) par @Html.ActionLink(Model.User.Firstname + " " + Model.User.Lastname, "Index", "Profile", new { id = Model.Article.IdCreator }, null)</small>
+                <small>@Html.Raw(Model.Article.CreatedDate.ToShortDateString()) @MeditateBook.Resources.Views.Articles._Articles.by @Html.ActionLink(Model.User.Firstname + " " + Model.User.Lastname, "Index", "Profile", new { id = Model.Article.IdCreator }, null)</small>
             </div>
         </div>
         @if (Request.IsAuthenticated && Session["User"] != null && ((MeditateBook.DBO.User)Session["User"]).Role >= MeditateBook.BusinessManagement.UserRoles.Roles.Translator)

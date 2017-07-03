@@ -1,6 +1,7 @@
 ﻿using MeditateBook.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -89,13 +90,13 @@ namespace MeditateBook.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         [HttpPost, ValidateInput(false)]
-        public ActionResult EditArticle(EditArticleModel model)
+        public ActionResult EditArticle(EditArticleModel model, HttpPostedFileBase file)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
-            
+
             var result = true;
             switch (result)
             {
@@ -106,6 +107,26 @@ namespace MeditateBook.Controllers
                         article.IdCreator = (long)idCreator;
                     BusinessManagement.Article.CreateArticle(article);
                     RedirectToAction("Submit", "Article");
+
+                    if (file != null)
+                    {
+                        string pic = System.IO.Path.GetFileName(file.FileName);
+                        string path = System.IO.Path.Combine(
+                                               Server.MapPath("~/images/article"), pic);
+
+                        if (!Directory.Exists(path))
+                        {
+                            Directory.CreateDirectory(path);
+                        }
+                        // file is uploaded
+                        file.SaveAs(path);
+                        DBO.ArticleImage image = new DBO.ArticleImage();
+                        image.ImagePath = path;
+                        image.Name = pic;
+                        image.IdArticle = article.Id;
+                        BusinessManagement.ArticleImage.CreateArticleImage(image);
+            }
+
                     return View(model);
                 case false:
                     ModelState.AddModelError("", "Insertion d'article invalide");

@@ -8,7 +8,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <section id="EditArticleForm">
-            @using (Html.BeginForm("EditArticle", "Articles", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            @using (Html.BeginForm("EditArticle", "Articles", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
                 <hr />
@@ -27,12 +27,39 @@
                         @Html.ValidationMessageFor(m => m.Content, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Soumettre" class="btn btn-default" />
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ImagePath, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            <input type="file" name="file" />
+                        </div>
                     </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Soumettre" class="btn btn-default" />
+                        </div>
+                    </div>
+                
                 </div>
             }
+                <div class="col-md-6">
+                        @using (Html.BeginForm("EditArticle", "Articles", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                        {
+                            <div class="form-group">
+                                @Html.Label("Fichier", new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    <input type="file" name="file" />
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Ajouter fichier" class="btn btn-default" />
+                                </div>
+                            </div>
+                        }
+                 </div>
         </section>
     </div>
     <div class="col-md-2">
