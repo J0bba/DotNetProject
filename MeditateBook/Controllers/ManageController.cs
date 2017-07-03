@@ -92,5 +92,24 @@ namespace MeditateBook.Controllers
 
             return View(model);
         }
+
+        public ActionResult ValidateTrad(int id)
+        {
+            DBO.Translation translation = BusinessManagement.Translation.GetTranslationById(id);
+            translation.Validated = true;
+            BusinessManagement.Translation.UpdateTranslation(translation);
+            return RedirectToAction("ManageTranslations", "Manage");
+        }
+
+        public ActionResult ShowTrad(int id)
+        {
+            return RedirectToAction("ManageTranslations", "Manage");
+        }
+
+        public ActionResult DeleteTrad(int id)
+        {
+            BusinessManagement.Translation.DeleteTranslation(id);
+            return RedirectToAction("ManageTranslations", "Manage");
+        }
     }
 }

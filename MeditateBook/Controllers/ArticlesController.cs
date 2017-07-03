@@ -88,11 +88,7 @@ namespace MeditateBook.Controllers
                         translation.IdTranslator = (long)idCreator;
                     BusinessManagement.Translation.CreateTranslation(translation);
                     return RedirectToAction("SubmitTraduction", "Articles");
-                case false:
-                    ModelState.AddModelError("", "Insertion de traduction invalide");
-                    return View(model);
                 default:
-                    ModelState.AddModelError("", "Insertion de traduction invalide");
                     return View(model);
             }
         }

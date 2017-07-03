@@ -1,31 +1,17 @@
 ﻿@model MeditateBook.Models.TradArticleModel
-@{
-    ViewBag.Title = MeditateBook.Resources.Views.Articles._TradArticle.Title;
-}
 
 <!DOCTYPE html>
 
-<h4 class="title">@ViewBag.Title.</h4>
+<section class="section">
+    <h4 class="title"> @Html.Raw(MeditateBook.Resources.Views.Articles._TradArticle.Title) : @Html.Raw(Model.titleOriginal)</h4>
     <div class="col-md-6">
         <section id="EditArticleForm">
             @using (Html.BeginForm("EditTraduction", "Articles", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
-                    @Html.Label(@MeditateBook.Resources.Views.Articles._Articles.Title, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.Label(@MeditateBook.Resources.Views.Articles._Articles.Content, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
                         @Html.TextAreaFor(m => m.Content, new { @class = "ckeditor", @id = "content" })
-                        @Html.ValidationMessageFor(m => m.Content, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 @Html.TextAreaFor(m => m.IdOriginal, new { @class = "col-md-2 control-label hidden" })
@@ -41,10 +27,14 @@
         </section>
     </div>
 
-<div class="row">
-    <div class="col-md-6">
-        <h2>@Html.Raw(Model.titleOriginal) </h2>
-
-        @Html.Raw(Model.contentOriginal)
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="title">@Html.Raw(MeditateBook.Resources.Views.Articles._TradArticle.OriginalContent)</h2>
+                    @Html.Raw(Model.contentOriginal)
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>

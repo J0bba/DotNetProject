@@ -41,11 +41,6 @@ namespace MeditateBook.Models
         public long IdOriginal { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "La chaîne {0} doit comporter au moins {2} caractères.", MinimumLength = 2)]
-        [Display(Name = "Title")]
-        public string Title { get; set; }
-
-        [Required]
         [Display(Name = "Content")]
         public string Content { get; set; }
 
