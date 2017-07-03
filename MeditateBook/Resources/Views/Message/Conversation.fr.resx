@@ -120,6 +120,9 @@
   <data name="error_send" xml:space="preserve">
     <value>Erreur dans l'envoie du message</value>
   </data>
+  <data name="send_button" xml:space="preserve">
+    <value>Envoyer</value>
+  </data>
   <data name="title_label" xml:space="preserve">
     <value>Conversation avec</value>
   </data>

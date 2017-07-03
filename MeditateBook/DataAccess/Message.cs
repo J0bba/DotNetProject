@@ -112,7 +112,7 @@ namespace MeditateBook.DataAccess
             try
             {
                 using (MeditateBookEntities bdd = new MeditateBookEntities()) {
-                    List<T_Message> list = bdd.T_Message.Where(x => ((x.id_receiver == user_id && x.id_sender == friend_id) || (x.id_receiver == friend_id && x.id_sender == user_id))).ToList();
+                    List<T_Message> list = bdd.T_Message.Where(x => ((x.id_receiver == user_id && x.id_sender == friend_id) || (x.id_receiver == friend_id && x.id_sender == user_id))).OrderBy(x => x.date).ToList();
                     foreach (T_Message message in list)
                     {
                         DBO.Message newMessage = new DBO.Message()

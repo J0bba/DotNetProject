@@ -54,7 +54,14 @@ namespace MeditateBook.Controllers
         public ActionResult Conversation(int friend_id)
         {
             List<DBO.Message> list = BusinessManagement.Message.GetConversationMessageList(Int32.Parse(HttpContext.Session["UserID"].ToString()), friend_id);
-
+            foreach(DBO.Message msg in list)
+            {
+                if (msg.IsSeen != true)
+                {
+                    msg.IsSeen = true;
+                    BusinessManagement.Message.UpdateMessage(msg);
+                }
+            }
             
             return View(list);
         }
