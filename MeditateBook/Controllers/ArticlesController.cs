@@ -27,41 +27,15 @@ namespace MeditateBook.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         [HttpPost, ValidateInput(false)]
-        public ActionResult Submit(EditArticleModel model)
+        public ActionResult Submit()
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            // Ceci ne comptabilise pas les échecs de connexion pour le verrouillage du compte
-            // Pour que les échecs de mot de passe déclenchent le verrouillage du compte, utilisez shouldLockout: true
-            /*var result = Membership.ValidateUser(model.Email, model.Password);
-            switch (result)
-            {
-                case true:
-                    HttpContext.Session["UserID"] = BusinessManagement.User.getIdByName(model.Email);
-                    FormsAuthentication.RedirectFromLoginPage(model.Email, false);
-                    return returnUrl == null ? RedirectToAction("Index", "Home") : RedirectToLocal(returnUrl);
-                //case SignInStatus.LockedOut:
-                //    return View("Lockout");
-                //case SignInStatus.RequiresVerification:
-                //    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case false:
-                    ModelState.AddModelError("", "Tentative de connexion non valide.");
-                    return View(model);
-                default:
-                    ModelState.AddModelError("", "Tentative de connexion non valide.");
-                    return View(model);
-            }*/
-            DBO.Article article = new DBO.Article { Title = model.Title, Content = model.Content, Validated = false, CreatedDate = DateTime.Now };
-            var idCreator = HttpContext.Session["UserID"];
-            if (idCreator != null)
-                article.IdCreator = (long)idCreator;
-            BusinessManagement.Article.CreateArticle(article);
             return View();
         }
 
+        public ActionResult SubmitTraduction()
+        {
+            return View();
+        }
 
         public ActionResult EditArticle()
         {
@@ -71,21 +45,44 @@ namespace MeditateBook.Controllers
         public ActionResult EditTraduction(long id)
         {
             DBO.Article article = BusinessManagement.Article.GetArticle(id);
-            TradArticleModel tradModel = new TradArticleModel(article);
+            TradArticleModel tradModel = new TradArticleModel();
+            tradModel.titleOriginal = article.Title;
+            tradModel.contentOriginal = article.Content;
+            tradModel.IdOriginal = article.Id;
+            List<DBO.Language> listLanguages = BusinessManagement.Language.GetListLanguage();
+            tradModel.listLangues = listLanguages;
             return View(tradModel);
         }
+
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         [HttpPost, ValidateInput(false)]
-        public ActionResult SubmitTraduction(TradArticleModel model)
+        public ActionResult EditTraduction(TradArticleModel model)
         {
-
-            DBO.Translation translation = new DBO.Translation { Content = model.Content, IdArticle = model.Id, IdLanguage = 1 };
-            var idCreator = HttpContext.Session["UserID"];
-            if (idCreator != null)
-                translation.IdTranslator = (long)idCreator;
-            BusinessManagement.Translation.CreateTranslation(translation);
-            return View();
+            model.listLangues = BusinessManagement.Language.GetListLanguage();
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var result = true;
+            //verify things that are not possibly verified by ModelState here and change result.
+            switch (result)
+            {
+                case true:
+                    DBO.Translation translation = new DBO.Translation { Content = model.Content, IdArticle = model.IdOriginal, IdLanguage = model.Langue, Validated = false };
+                    var idCreator = HttpContext.Session["UserID"];
+                    if (idCreator != null)
+                        translation.IdTranslator = (long)idCreator;
+                    BusinessManagement.Translation.CreateTranslation(translation);
+                    RedirectToAction("SubmitTraduction", "Article");
+                    return View(model);
+                case false:
+                    ModelState.AddModelError("", "Insertion de traduction invalide");
+                    return View(model);
+                default:
+                    ModelState.AddModelError("", "Insertion de traduction invalide");
+                    return View(model);
+            }
         }
 
         [AllowAnonymous]
@@ -97,21 +94,11 @@ namespace MeditateBook.Controllers
             {
                 return View(model);
             }
-
-            // Ceci ne comptabilise pas les échecs de connexion pour le verrouillage du compte
-            // Pour que les échecs de mot de passe déclenchent le verrouillage du compte, utilisez shouldLockout: true
+            
             var result = true;
-            if (model.Title != "" && model.Content != "")
-            {
-                result = false;
-            }
-            //var result = Membership.ValidateUser(model.Email, model.Password);
             switch (result)
             {
                 case true:
-                    //HttpContext.Session["UserID"] = BusinessManagement.User.getIdByName(model.Email);
-                    //FormsAuthentication.RedirectFromLoginPage(model.Email, false);
-                    //return returnUrl == null ? RedirectToAction("Index", "Home") : RedirectToLocal(returnUrl);
                     DBO.Article article = new DBO.Article { Title = model.Title, Content = model.Content, Validated = false, CreatedDate = DateTime.Now };
                     var idCreator = HttpContext.Session["UserID"];
                     if (idCreator != null)
@@ -120,14 +107,12 @@ namespace MeditateBook.Controllers
                     RedirectToAction("Submit", "Article");
                     return View(model);
                 case false:
-                    ModelState.AddModelError("", "Tentative de connexion non valide.");
+                    ModelState.AddModelError("", "Insertion d'article invalide");
                     return View(model);
                 default:
-                    ModelState.AddModelError("", "Tentative de connexion non valide.");
+                    ModelState.AddModelError("", "Insertion d'article invalide");
                     return View(model);
             }
-            return View();
-
         }
     }
 }

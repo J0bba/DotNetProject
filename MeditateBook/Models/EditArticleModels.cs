@@ -25,22 +25,18 @@ namespace MeditateBook.Models
 
     public class TradArticleModel
     {
-        public string content = "";
-        public string title = "";
-        
-        public TradArticleModel(DBO.Article article)
-        {
-            this.content = article.Content;
-            this.title = article.Title;
-        }
-
-        public TradArticleModel()
-        {
-        }
+        [Required]
+        [Display(Name = "contentOriginal")]
+        public string contentOriginal { get; set; }
 
         [Required]
-        [Display(Name = "Id")]
-        public long Id { get; set; }
+        [Display(Name = "titleOriginal")]
+        public string titleOriginal { get; set; }
+
+
+        [Required]
+        [Display(Name = "IdOriginal")]
+        public long IdOriginal { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "La chaîne {0} doit comporter au moins {2} caractères.", MinimumLength = 6)]
@@ -50,5 +46,11 @@ namespace MeditateBook.Models
         [Required]
         [Display(Name = "Content")]
         public string Content { get; set; }
+
+        [Required]
+        [Display(Name = "Langue")]
+        public int Langue { get; set; }
+
+        public List<DBO.Language> listLangues   ;
     }
 }
