@@ -6,8 +6,12 @@
     @Html.AntiForgeryToken()
 
         <div class="nav-right">
+            @if (Session["User"] != null && ((MeditateBook.DBO.User)Session["User"]).Role >= MeditateBook.BusinessManagement.UserRoles.Roles.Admin)
+            {
+                @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Administration, "Index", "Manage", null, new { @class = "nav-item" })
+            }
             @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Messages, "Index", "Message", null, new { @class = "nav-item" })
-            @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Profile, "Index", "Manage", null, htmlAttributes: new { @class = "nav-item" })
+            @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Profile, "Index", "Profile", new { id = Session["User"] != null ? ((MeditateBook.DBO.User)Session["User"]).Id : -1 }, htmlAttributes: new { @class = "nav-item" })
             <a class="nav-item" href="javascript:document.getElementById('logoutForm').submit()">@Html.Raw(MeditateBook.Resources.Views.Shared._Layout.Logout)</a>
         </div>
     }

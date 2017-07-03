@@ -61,6 +61,15 @@ namespace MeditateBook.Resources.Views.Shared {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Administration.
+        /// </summary>
+        public static string Administration {
+            get {
+                return ResourceManager.GetString("Administration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Articles.
         /// </summary>
         public static string Articles {

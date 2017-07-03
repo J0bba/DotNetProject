@@ -49,7 +49,8 @@ namespace MeditateBook.Controllers
             HttpCookie _cookie = new HttpCookie("MeditateBook.CurrentUICulture", Thread.CurrentThread.CurrentUICulture.Name);
             _cookie.Expires = DateTime.Now.AddYears(1);
             HttpContext.Response.SetCookie(_cookie);
-
+            if (HttpContext.Session["UserID"] != null)
+                HttpContext.Session["User"] = BusinessManagement.User.GetUserById(Int32.Parse(HttpContext.Session["UserID"].ToString()));
             base.ExecuteCore();
         }
     }
