@@ -117,7 +117,6 @@ namespace MeditateBook.Controllers
                     if (idCreator != null)
                         article.IdCreator = (long)idCreator;
                     BusinessManagement.Article.CreateArticle(ref article);
-                    RedirectToAction("Submit", "Article");
 
                     if (file != null)
                     {
@@ -138,7 +137,8 @@ namespace MeditateBook.Controllers
                         image.IdArticle = article.Id;
                         BusinessManagement.ArticleImage.CreateArticleImage(image);
                     }
-                    return RedirectToAction("Submit", "Article"); ;
+                    RedirectToAction("Submit", "Article");
+                    return View(model);
                 case false:
                     ModelState.AddModelError("", "Insertion d'article invalide");
                     return View(model);
