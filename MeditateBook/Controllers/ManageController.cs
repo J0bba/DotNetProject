@@ -52,6 +52,17 @@ namespace MeditateBook.Controllers
             return View(model);
         }
 
+        public ActionResult EditUser(int id)
+        {
+            return RedirectToAction("ManageUsers", "Manage");
+        }
+
+        public ActionResult DeleteUser(int id)
+        {
+            BusinessManagement.User.DeleteUser(id);
+            return RedirectToAction("ManageUsers", "Manage");
+        }
+
         public ActionResult ManageTranslations()
         {
             ManageTranslationsModel model = new ManageTranslationsModel();
