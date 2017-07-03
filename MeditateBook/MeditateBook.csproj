@@ -421,7 +421,7 @@
     <Content Include="Views\Articles\Index.cshtml" />
     <Content Include="Views\Articles\Article.cshtml" />
     <Content Include="Views\Articles\Submit.cshtml" />
-    <Content Include="Views\EditArticle\EditArticle.cshtml" />
+    <Content Include="Views\Articles\EditArticle.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
@@ -441,6 +441,7 @@
     <Folder Include="Resources\Models\" />
     <Folder Include="Resources\Views\Home\" />
     <Folder Include="Resources\Views\Language\" />
+    <Folder Include="Views\EditArticle\" />
     <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>

@@ -8,7 +8,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <section id="EditArticleForm">
-            @using (Html.BeginForm("Submit", "Articles", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            @using (Html.BeginForm("EditArticle", "Articles", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
                 <h4>Editer un Article</h4>

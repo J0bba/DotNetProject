@@ -17,7 +17,7 @@
                 @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Title, "Index", "Home", new { area = "" }, new { @class = "nav-item" })
                 @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Home, "Index", "Home", null, new { @class = "nav-item" })
                 @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Articles, "Index", "Articles", null, new { @class = "nav-item" })
-                @Html.ActionLink("Ajouter Article", "EditArticle", "EditArticle", null, new { @class = "nav-item" })
+                @Html.ActionLink("Ajouter Article", "EditArticle", "Articles", null, new { @class = "nav-item" })
             </div>
             <div class="nav-center">
                 @using (Html.BeginForm("Index", "Search", FormMethod.Post, new { @class = "nav-item" }))

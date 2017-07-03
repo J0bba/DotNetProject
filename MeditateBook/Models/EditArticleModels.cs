@@ -19,6 +19,8 @@ namespace MeditateBook.Models
         [Required]
         [Display(Name = "Content")]
         public string Content { get; set; }
+
+        
     }
 
     public class TradArticleModel
@@ -37,10 +39,11 @@ namespace MeditateBook.Models
         }
 
         [Required]
-        [Display(Name = "Title")]
+        [Display(Name = "Id")]
         public long Id { get; set; }
 
         [Required]
+        [StringLength(100, ErrorMessage = "La chaîne {0} doit comporter au moins {2} caractères.", MinimumLength = 6)]
         [Display(Name = "Title")]
         public string Title { get; set; }
 
