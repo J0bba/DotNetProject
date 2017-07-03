@@ -3,21 +3,27 @@
     ViewBag.Title = MeditateBook.Resources.Views.Shared._Layout.Articles;
 }
 
-<div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="col-md-11">
-                <h4 class="title">@Html.Raw(Model.Article.Title)</h4>
+<section class="section">
+    <div class="card">
+        <header class="card-header">
+            <p class="card-header-title">
+                @Html.Raw(Model.Article.Title)
+            </p>
+            <a class="card-header-icon">
+                <span class="icon">
+                    <i class="fa fa-angle-down"></i>
+                </span>
+            </a>
+        </header>
+        <div class="card-content">
+            <div class="content">
+                @Html.Raw(Model.Article.Content)
+                <br>
+                <small>@Html.Raw(Model.Article.CreatedDate.ToShortDateString()) par @Html.ActionLink(Model.User.Firstname + " " + Model.User.Lastname, "Index", "Profile", new { id = Model.Article.IdCreator }, null)</small>
             </div>
-            <div class="col-md-1">
-                (@Html.Raw(Model.Article.CreatedDate.ToShortDateString()))
-                @Html.ActionLink(Model.User.Firstname + " " + Model.User.Lastname, "Index", "Profile", new { id = Model.Article.IdCreator }, null)
-            </div>
-            @Html.Raw(Model.Article.Content)
-            <form>
-                @Html.ActionLink("Ajouter une traduction", "EditTraduction", new { id = Model.Article.Id }, null)
-            </form>
         </div>
-        
-
+        <footer class="card-footer">
+            @Html.ActionLink("Ajouter une traduction", "EditTraduction", new { id = Model.Article.Id }, null)
+        </footer>
     </div>
+</section>
