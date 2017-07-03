@@ -450,6 +450,7 @@
     <Content Include="Views\Manage\ManageTranslations.cshtml" />
     <Content Include="Views\Articles\EditTraduction.cshtml" />
     <Content Include="Views\Articles\SubmitTraduction.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -464,7 +465,6 @@
     <Folder Include="Resources\Views\Language\" />
     <Folder Include="Views\EditArticle\" />
     <Folder Include="Views\Language\" />
-    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

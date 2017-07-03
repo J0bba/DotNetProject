@@ -19,13 +19,7 @@ namespace MeditateBook.Controllers
             return View(model);
         }
 
-        public ActionResult DisplayProfile(long id)
-        {
-            ProfileViewModel model = new ProfileViewModel();
-            model.User = BusinessManagement.User.GetUserById(id);
-            model.idCurrentUser = (long)HttpContext.Session["UserID"];
-            return RedirectToAction("Index", "Manage", model);
-        }
+        
 
         public ActionResult ChangePassword()
         {
