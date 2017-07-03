@@ -106,6 +106,15 @@ namespace MeditateBook.Resources.Views.Shared {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Profil.
+        /// </summary>
+        public static string Profile {
+            get {
+                return ResourceManager.GetString("Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à S&apos;inscrire.
         /// </summary>
         public static string Register {
