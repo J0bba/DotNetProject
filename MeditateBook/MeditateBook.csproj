@@ -427,6 +427,7 @@
     <Content Include="Views\Manage\ManageUsers.cshtml" />
     <Content Include="Views\Manage\ManageTranslations.cshtml" />
     <Content Include="Views\Articles\EditTraduction.cshtml" />
+    <Content Include="Views\Articles\SubmitTraduction.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

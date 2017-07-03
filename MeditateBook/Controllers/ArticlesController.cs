@@ -47,7 +47,19 @@ namespace MeditateBook.Controllers
         {
             DBO.Article article = BusinessManagement.Article.GetArticle(id);
             TradArticleModel tradModel = new TradArticleModel(article);
+            //BusinessManagement.
             return View(tradModel);
+        }
+
+        public ActionResult SubmitTraduction(TradArticleModel model)
+        {
+
+            DBO.Translation translation = new DBO.Translation { Content = model.content, IdArticle = model.id, IdLanguage = 1 };
+            var idCreator = HttpContext.Session["UserID"];
+            if (idCreator != null)
+                translation.IdTranslator = (long)idCreator;
+            BusinessManagement.Translation.CreateTranslation(translation);
+            return View();
         }
     }
 }
