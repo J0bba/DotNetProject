@@ -217,6 +217,7 @@
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\SessionHandler.cs" />
     <Compile Include="Controllers\_BaseController.cs" />
     <Compile Include="CustomMemberShip.cs" />
     <Compile Include="DataAccess\Article.cs" />

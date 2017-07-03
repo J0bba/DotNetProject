@@ -23,6 +23,7 @@ namespace MeditateBook.Models
         [Display(Name = "Image")]
         public String ImagePath { get; set; }
 
+        public List<DBO.ArticleAttach> listAttach;
     }
 
     public class TradArticleModel

@@ -142,6 +142,15 @@ namespace MeditateBook.Controllers
             }
         }
 
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        [HttpPost, ValidateInput(false)]
+        public ActionResult AddAttach(long idArticle, HttpPostedFileBase file)
+        {
+
+            return RedirectToAction("EditArticle", "Articles");
+        }
+
 
     }
 }
