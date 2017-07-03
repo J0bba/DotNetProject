@@ -7,9 +7,9 @@ namespace MeditateBook.BusinessManagement
 {
     public class Article
     {
-        public static bool CreateArticle(DBO.Article article)
+        public static bool CreateArticle(ref DBO.Article article)
         {
-            return DataAccess.Article.CreateArticle(article);
+            return DataAccess.Article.CreateArticle(ref article);
         }
 
         public static bool DeleteArticle(long id)

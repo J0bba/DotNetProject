@@ -105,7 +105,7 @@ namespace MeditateBook.Controllers
                     var idCreator = HttpContext.Session["UserID"];
                     if (idCreator != null)
                         article.IdCreator = (long)idCreator;
-                    BusinessManagement.Article.CreateArticle(article);
+                    BusinessManagement.Article.CreateArticle(ref article);
                     RedirectToAction("Submit", "Article");
 
                     if (file != null)

@@ -7,7 +7,7 @@ namespace MeditateBook.DataAccess
 {
     public class Article
     {
-        public static bool CreateArticle(DBO.Article article)
+        public static bool CreateArticle(ref DBO.Article article)
         {
             try
             {
@@ -23,6 +23,7 @@ namespace MeditateBook.DataAccess
                     };
                     bdd.T_Article.Add(newArticle);
                     bdd.SaveChanges();
+                    article.Id = newArticle.id;
                     return true;
                 }
             }
