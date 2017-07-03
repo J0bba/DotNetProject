@@ -204,11 +204,29 @@ namespace MeditateBook.Resources.Views.Manage {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Traduction manquante.
+        /// </summary>
+        public static string missingLang {
+            get {
+                return ResourceManager.GetString("missingLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Nouveau mot de passe.
         /// </summary>
         public static string NewPassword {
             get {
                 return ResourceManager.GetString("NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Articles avec traduction manquantes.
+        /// </summary>
+        public static string noTransTitle {
+            get {
+                return ResourceManager.GetString("noTransTitle", resourceCulture);
             }
         }
         

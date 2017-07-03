@@ -17,6 +17,43 @@
         <div class="column">
             <section class="section">
                 <div class="container">
+                    <h1 class="title">
+                        @MeditateBook.Resources.Views.Manage._Manage.noTransTitle
+                    </h1>
+                    <table>
+                        <tr>
+                            <th>
+                                @MeditateBook.Resources.Views.Articles._Articles.Title
+                            </th>
+                            <th>
+                                @MeditateBook.Resources.Views.Manage._Manage.missingLang
+                            </th>
+                        </tr>
+                        @foreach(var item in Model.missingTransArticles)
+                        {
+                            <tr>
+                                <td><a href="@Url.Action("Article", "Articles", new { id = item.Item1.Id })">@item.Item1.Title</a></td>
+                                <td>@foreach (var lang in item.Item2)
+                                {
+                                    if (!lang.Equals(item.Item2.Last()))
+                                    {
+                                        <span>@lang.Name - </span>
+                                    }
+                                    else
+                                    {
+                                        <span>@lang.Name</span>
+                                    }
+
+
+                                }
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </section>
+            <section class="section">
+                <div class="container">
                     <h1 class="title">@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.ManageTranslations)</h1>
 
                     <table>

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using System.Web;
+using System;
 
 namespace MeditateBook.Models
 {
@@ -35,6 +36,7 @@ namespace MeditateBook.Models
     public class ManageTranslationsModel
     {
         public DBO.User User { get; set; }
+        public List<Tuple<DBO.Article, List<DBO.Language>>> missingTransArticles { get; set; }
         public List<DBO.Translation> Translations { get; set; }
     }
 }

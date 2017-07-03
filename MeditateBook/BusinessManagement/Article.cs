@@ -91,5 +91,10 @@ namespace MeditateBook.BusinessManagement
             return result;
         }
 
+        public static List<Tuple<DBO.Article, List<DBO.Language>>> GetListArticleWithMissingTrans()
+        {
+            return DataAccess.Article.GetListArticleWithMissingTrans();
+        }
+
     }
 }

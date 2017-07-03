@@ -201,5 +201,49 @@ namespace MeditateBook.DataAccess
                 return result;
             }
         }
+
+        public static List<Tuple<DBO.Article, List<DBO.Language>>> GetListArticleWithMissingTrans()
+        {
+            List<Tuple<DBO.Article, List<DBO.Language>>> result = new List<Tuple<DBO.Article, List<DBO.Language>>>();
+            try
+            {
+                using (MeditateBookEntities bdd = new MeditateBookEntities())
+                {
+                    var list = bdd.T_Article.GroupJoin(bdd.T_Translation, article => article.id, translation => translation.id_article, (article, translation) => new { article, translation }).ToList();
+                    foreach (var elm in list)
+                    {
+                        List<DBO.Language> languages = Language.GetListLanguage();
+                        if (elm.translation.Count() != languages.Count)
+                        {
+                            DBO.Article newArticle = new DBO.Article()
+                            {
+                                Id = elm.article.id,
+                                Title = elm.article.title,
+                                Content = elm.article.content,
+                                CreatedDate = elm.article.created_date,
+                                Validated = elm.article.validated,
+                                IdCreator = elm.article.id_creator
+                            };
+                            foreach (var obj in elm.translation)
+                            {
+                                foreach (var language in languages)
+                                {
+                                    if (obj.id_language == language.Id)
+                                        languages.Remove(language);
+                                }
+                            }
+                            Tuple<DBO.Article, List<DBO.Language>> item = new Tuple<DBO.Article, List<DBO.Language>>(newArticle, languages);
+                            result.Add(item);
+                        }
+                    }
+                    return result;
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                return result;
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MeditateBook.Models;
+using System.Collections.Generic;
 
 namespace MeditateBook.Controllers
 {
@@ -88,6 +89,10 @@ namespace MeditateBook.Controllers
             ManageTranslationsModel model = new ManageTranslationsModel();
             model.User = BusinessManagement.User.GetUserById(Int32.Parse(HttpContext.Session["UserID"].ToString()));
             model.Translations = BusinessManagement.Translation.GetListNonValidatedTranslation();
+            List<Tuple<DBO.Article, List<DBO.Language>>> missingTransArticles = BusinessManagement.Article.GetListArticleWithMissingTrans();
+            System.Diagnostics.Debug.WriteLine("Count de trans manquantes : " + missingTransArticles.First().Item2.Count);
+            model.missingTransArticles = missingTransArticles;
+
             return View(model);
         }
     }

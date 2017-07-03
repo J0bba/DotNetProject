@@ -142,7 +142,7 @@ namespace MeditateBook.DataAccess
             {
                 using (MeditateBookEntities bdd = new MeditateBookEntities())
                 {
-                    T_Message message = bdd.T_Message.Where(x => x.id_receiver == user_id && x.isSeen == false).First();
+                    T_Message message = bdd.T_Message.Where(x => x.id_receiver == user_id && x.isSeen == false).FirstOrDefault();
                     return message != null;
                 }
             }

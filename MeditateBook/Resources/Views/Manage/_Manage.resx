@@ -138,8 +138,14 @@
   <data name="ManageUsers" xml:space="preserve">
     <value>Gérer les utilisateurs</value>
   </data>
+  <data name="missingLang" xml:space="preserve">
+    <value>Traduction manquante</value>
+  </data>
   <data name="NewPassword" xml:space="preserve">
     <value>Nouveau mot de passe</value>
+  </data>
+  <data name="noTransTitle" xml:space="preserve">
+    <value>Articles avec traduction manquantes</value>
   </data>
   <data name="OldPassword" xml:space="preserve">
     <value>Ancien mot de passe</value>
