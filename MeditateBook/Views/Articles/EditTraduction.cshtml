@@ -28,7 +28,7 @@
                         @Html.ValidationMessageFor(m => m.Content, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                Html.TextAreaFor(m => m.id, new { @class = "col-md-2 control-label hidden" })
+                @Html.TextAreaFor(m => m.Id, new { @class = "col-md-2 control-label hidden" })
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Soumettre" class="btn btn-default" />

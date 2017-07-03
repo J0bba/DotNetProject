@@ -25,17 +25,20 @@ namespace MeditateBook.Models
     {
         public string content = "";
         public string title = "";
-        public long id = 1;
+        
         public TradArticleModel(DBO.Article article)
         {
             this.content = article.Content;
             this.title = article.Title;
-            this.id = article.Id;
         }
 
         public TradArticleModel()
         {
         }
+
+        [Required]
+        [Display(Name = "Title")]
+        public long Id { get; set; }
 
         [Required]
         [Display(Name = "Title")]

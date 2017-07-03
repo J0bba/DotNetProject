@@ -52,10 +52,10 @@ namespace MeditateBook.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         [HttpPost, ValidateInput(false)]
-        public ActionResult SubmitTraduction(TradArticleModel model, long id)
+        public ActionResult SubmitTraduction(TradArticleModel model)
         {
 
-            DBO.Translation translation = new DBO.Translation { Content = model.Content, IdArticle = model.id, IdLanguage = 1 };
+            DBO.Translation translation = new DBO.Translation { Content = model.Content, IdArticle = model.Id, IdLanguage = 1 };
             var idCreator = HttpContext.Session["UserID"];
             if (idCreator != null)
                 translation.IdTranslator = (long)idCreator;
