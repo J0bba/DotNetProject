@@ -49,6 +49,13 @@ namespace MeditateBook.BusinessManagement
             user.Password = Decrypt(user.Password);
             return DataAccess.User.GetUserById(id);
         }
+
+        public static List<DBO.User> GetUsersUnderRole(BusinessManagement.UserRoles.Roles role)
+        {
+            List<DBO.User> users = DataAccess.User.GetUsersUnderRole(role);
+            return users;
+        }
+
         public static bool ValidateUser(string username, string password)
         {
             string userPass = DataAccess.User.GetPasswordByUser(username);

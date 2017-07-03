@@ -132,6 +132,9 @@
   <data name="Lastname" xml:space="preserve">
     <value>Lastname</value>
   </data>
+  <data name="ManageTranslations" xml:space="preserve">
+    <value>Manage translations</value>
+  </data>
   <data name="ManageUsers" xml:space="preserve">
     <value>Manage users</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="Role" xml:space="preserve">
     <value>Role</value>
+  </data>
+  <data name="TranslationLanguage" xml:space="preserve">
+    <value>Translation language</value>
   </data>
   <data name="User" xml:space="preserve">
     <value>User</value>

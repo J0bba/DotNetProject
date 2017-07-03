@@ -17,4 +17,16 @@ namespace MeditateBook.Models
         public string NewPassword { get; set; }
         public string ConfirmNewPassword { get; set; }
     }
+
+    public class ManageUsersModel
+    {
+        public DBO.User User { get; set; }
+        public List<DBO.User> Users { get; set; }
+    }
+
+    public class ManageTranslationsModel
+    {
+        public DBO.User User { get; set; }
+        public List<DBO.Translation> Translations { get; set; }
+    }
 }

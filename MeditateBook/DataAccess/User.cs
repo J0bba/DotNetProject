@@ -144,6 +144,38 @@ namespace MeditateBook.DataAccess
             }
         }
 
+        public static List<DBO.User> GetUsersUnderRole(BusinessManagement.UserRoles.Roles role)
+        {
+            List<DBO.User> result = new List<DBO.User>();
+            try
+            {
+                using (MeditateBookEntities bdd = new MeditateBookEntities())
+                {
+                    
+                        List<T_User> list = bdd.T_User.Where(x => x.role <= (int)role).ToList();
+                    foreach (T_User user in list)
+                    {
+                        DBO.User newUser = new DBO.User()
+                        {
+                            Email = user.email,
+                            Firstname = user.firstname,
+                            Id = user.id,
+                            Lastname = user.lastname,
+                            Password = user.password,
+                            Role = (BusinessManagement.UserRoles.Roles)user.role
+                        };
+                        result.Add(newUser);
+                    }
+                    return result;
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                return result;
+            }
+        }
+
         public static DBO.User GetUserByName(string name)
         {
             try

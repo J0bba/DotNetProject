@@ -16,7 +16,8 @@
                     Administration
                 </p>
                 <ul class="menu-list">
-                    <li><a>@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.ManageUsers)</a></li>
+                    <li>@Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.ManageUsers, "ManageUsers", "Manage")</li>
+                    <li>@Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.ManageTranslations, "ManageTranslations", "Manage")</li>
                 </ul>
             }
         </aside>

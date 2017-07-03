@@ -1,0 +1,70 @@
+﻿@model MeditateBook.Models.ManageUsersModel
+
+
+<div class="columns">
+    <div class="column is-3">
+        <aside class="menu">
+            <p class="menu-label">
+                General
+            </p>
+            <ul class="menu-list">
+                <li>@Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.ChangePassword, "ChangePassword", "Manage")</li>
+            </ul>
+            @if (Model.User.Role >= MeditateBook.BusinessManagement.UserRoles.Roles.Admin)
+            {
+                <p class="menu-label">
+                    Administration
+                </p>
+                <ul class="menu-list">
+                    <li>@Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.ManageUsers, "ManageUsers", "Manage", new { @class = "is-active" })</li>
+                    <li>@Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.ManageTranslations, "ManageTranslations", "Manage")</li>
+                </ul>
+            }
+        </aside>
+    </div>
+
+    <div class="column">
+        <section class="section">
+            <div class="container">
+                <h1 class="title">@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.ManageUsers)</h1>
+
+                <table>
+                    <tr>
+                        <th>
+                            @Html.Raw(MeditateBook.Resources.Views.Manage._Manage.Firstname)
+                        </th>
+                        <th>
+                            @Html.Raw(MeditateBook.Resources.Views.Manage._Manage.Lastname)
+                        </th>
+                        <th>
+                            @Html.Raw(MeditateBook.Resources.Views.Manage._Manage.Role)
+                        </th>
+                        <th></th>
+                    </tr>
+
+
+                    @foreach (var item in Model.Users)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Firstname)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Lastname)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Role)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+
+                    </table>
+</div>
+        </section>
+    </div>
+</div>

@@ -186,6 +186,15 @@ namespace MeditateBook.Resources.Views.Manage {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Gérer les traductions.
+        /// </summary>
+        public static string ManageTranslations {
+            get {
+                return ResourceManager.GetString("ManageTranslations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Gérer les utilisateurs.
         /// </summary>
         public static string ManageUsers {
@@ -218,6 +227,15 @@ namespace MeditateBook.Resources.Views.Manage {
         public static string Role {
             get {
                 return ResourceManager.GetString("Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Langue de traduction.
+        /// </summary>
+        public static string TranslationLanguage {
+            get {
+                return ResourceManager.GetString("TranslationLanguage", resourceCulture);
             }
         }
         

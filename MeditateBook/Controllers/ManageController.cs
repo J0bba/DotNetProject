@@ -31,5 +31,21 @@ namespace MeditateBook.Controllers
         {
             return View();
         }
+
+        public ActionResult ManageUsers()
+        {
+            ManageUsersModel model = new ManageUsersModel();
+            model.User = BusinessManagement.User.GetUserById(Int32.Parse(HttpContext.Session["UserID"].ToString()));
+            model.Users = BusinessManagement.User.GetUsersUnderRole(model.User.Role);
+            return View(model);
+        }
+
+        public ActionResult ManageTranslations()
+        {
+            ManageTranslationsModel model = new ManageTranslationsModel();
+            model.User = BusinessManagement.User.GetUserById(Int32.Parse(HttpContext.Session["UserID"].ToString()));
+            model.Translations = BusinessManagement.Translation.GetListNonValidatedTranslation();
+            return View(model);
+        }
     }
 }

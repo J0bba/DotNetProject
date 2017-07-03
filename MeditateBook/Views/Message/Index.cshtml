@@ -1,22 +1,27 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
-@model List<MeditateBook.DBO.Conversation>
+﻿@model List<MeditateBook.DBO.Conversation>
 
-<h2>Index</h2>
-@foreach(MeditateBook.DBO.Conversation conv in Model)
-{
-    <div>@conv.FriendName               @conv.LastMessageDate.ToShortDateString()     : 
-        @if(!conv.wasRead)
-        {
-            <b>@conv.LastMessageContent</b>
-        }
-        else
-        {
-            @conv.LastMessageContent
-        }
 
+<section class="section">
+    <div class="container">
+        <h1 class="title">@Html.Raw(MeditateBook.Resources.Views.Shared._Layout.Messages)</h1>
+        @foreach (MeditateBook.DBO.Conversation conv in Model)
+        {
+            <article class="message">
+                <div class="message-header">
+                    <p>@conv.FriendName (@conv.LastMessageDate.ToShortDateString())</p>
+                    <button class="delete"></button>
+                </div>
+                <div class="message-body">
+                    @if (!conv.wasRead)
+                    {
+                        <strong>@conv.LastMessageContent</strong>
+                    }
+                    else
+                    {
+                        @conv.LastMessageContent
+                    }
+                </div>
+            </article>
+        }
     </div>
-
-}
+</section>
