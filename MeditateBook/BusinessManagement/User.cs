@@ -40,6 +40,7 @@ namespace MeditateBook.BusinessManagement
         public static bool UpdateUser(DBO.User user)
         {
             user.Password = Encrypt(user.Password);
+
             return DataAccess.User.UpdateUser(user);
         }
 
@@ -47,7 +48,7 @@ namespace MeditateBook.BusinessManagement
         {
             DBO.User user = DataAccess.User.GetUserById(id);
             user.Password = Decrypt(user.Password);
-            return DataAccess.User.GetUserById(id);
+            return user;
         }
 
         public static List<DBO.User> GetUsersUnderRole(BusinessManagement.UserRoles.Roles role)
