@@ -1,0 +1,27 @@
+﻿@model List<MeditateBook.DBO.Message>
+@{ 
+    MeditateBook.DBO.User user = (MeditateBook.DBO.User)Session["User"];
+    long friend_id = Model.First().IdReceiver == user.Id ? Model.First().IdReceiver : Model.First().IdSender;
+}
+<h2>@MeditateBook.Resources.Views.Message.Conversation.title_label @(user.Firstname + " " + user.Lastname)</h2>
+<h1>@ViewBag.Error</h1>
+<div>
+    @foreach (MeditateBook.DBO.Message msg in Model)
+    {
+        if (msg.IdReceiver == user.Id)
+        {
+            // A GAUCHE
+            <span style="width:inherit; text-align:left">@msg.Content     @msg.Date.ToShortDateString()</span>
+        }
+        else
+        {
+            <span style="width:inherit; text-align:right">@msg.Content     @msg.Date.ToShortDateString()</span>
+        }
+    }
+</div>
+<div>
+    <form action="@Url.Action("Conversation", "Message", new { friend_id = friend_id })" method="post">
+        <input type="text" name="Content" value="Content"/>
+        <input type="submit" value="@MeditateBook.Resources.Views.Message.Conversation.send_button" />
+    </form>
+</div>

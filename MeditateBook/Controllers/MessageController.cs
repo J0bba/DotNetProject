@@ -6,13 +6,12 @@ using System.Web.Mvc;
 
 namespace MeditateBook.Controllers
 {
-    public class MessageController : Controller
+    public class MessageController : _BaseController
     {
         // GET: Message
         public ActionResult Index()
         {
             int userId = Int32.Parse(HttpContext.Session["UserID"].ToString());
-            System.Diagnostics.Debug.WriteLine("User: " + userId);
             List<DBO.Message> messages = BusinessManagement.Message.GetListMessageByUser(userId);
             List<DBO.Conversation> conversations = new List<DBO.Conversation>();
             foreach (var message in messages)
@@ -22,9 +21,6 @@ namespace MeditateBook.Controllers
                 else 
                     addToConv(message, BusinessManagement.User.GetUserById(message.IdSender), ref conversations);
             }
-            System.Diagnostics.Debug.WriteLine("starting to print");
-            foreach (var conv in conversations)
-                System.Diagnostics.Debug.WriteLine(conv.FriendName);
             return View(conversations);
         }
 
@@ -57,9 +53,28 @@ namespace MeditateBook.Controllers
 
         public ActionResult Conversation(int friend_id)
         {
-            ViewBag.sender = BusinessManagement.User.GetUserById(friend_id);
+            List<DBO.Message> list = BusinessManagement.Message.GetConversationMessageList(Int32.Parse(HttpContext.Session["UserID"].ToString()), friend_id);
+
             
-            return View();
+            return View(list);
+        }
+        [HttpPost]
+        public ActionResult Conversation(int friend_id, int userId=0)
+        {
+            int user_id = Int32.Parse(HttpContext.Session["UserID"].ToString());
+            DBO.Message newMessage = new DBO.Message()
+            {
+                Content = Request["Content"],
+                Date = DateTime.Now,
+                IdReceiver = friend_id,
+                IdSender = user_id,
+                IsSeen = false
+            };
+            if (!BusinessManagement.Message.CreateMessage(newMessage))
+            {
+                ViewBag.Error = Resources.Views.Message.Conversation.error_send;
+            }
+            return View(BusinessManagement.Message.GetConversationMessageList(user_id, friend_id));
         }
     }
 }

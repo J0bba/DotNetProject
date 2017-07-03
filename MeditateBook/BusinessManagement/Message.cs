@@ -26,5 +26,10 @@ namespace MeditateBook.BusinessManagement
         {
             return DataAccess.Message.GetListMessageByUser(user_id);
         }
+
+        public static List<DBO.Message> GetConversationMessageList(int user_id, int friend_id)
+        {
+            return DataAccess.Message.GetConversationsMessageList(user_id, friend_id);
+        }
     }
 }

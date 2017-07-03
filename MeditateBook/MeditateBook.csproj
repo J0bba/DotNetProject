@@ -351,6 +351,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Resources\Views\Message\Conversation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Conversation.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Message\Conversation.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Conversation.fr.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Views\Search\_Search.Designer.cs">
       <DependentUpon>_Search.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -449,6 +459,7 @@
     <Content Include="Views\Manage\ManageTranslations.cshtml" />
     <Content Include="Views\Articles\EditTraduction.cshtml" />
     <Content Include="Views\Articles\SubmitTraduction.cshtml" />
+    <Content Include="Views\Message\Conversation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -530,6 +541,14 @@
     <EmbeddedResource Include="Resources\Views\Manage\_Manage.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>_Manage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Message\Conversation.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Conversation.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Message\Conversation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Conversation.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Search\_Search.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
