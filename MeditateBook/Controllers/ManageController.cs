@@ -27,9 +27,21 @@ namespace MeditateBook.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult ChangePassword(ChangePasswordModel model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                if (model.NewPassword.Equals(model.ConfirmNewPassword))
+                {
+                    model.User = BusinessManagement.User.GetUserById(Int32.Parse(HttpContext.Session["UserID"].ToString()));
+                    model.User.Password = model.NewPassword;
+                    var result = BusinessManagement.User.UpdateUser(model.User);
+                    if (result)
+                        return RedirectToAction("Index", "Manage");
+                }
+            }
+            return View(model);
         }
 
         public ActionResult ManageUsers()
