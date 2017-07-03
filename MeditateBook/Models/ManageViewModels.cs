@@ -2,12 +2,14 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using System.Web;
 
 namespace MeditateBook.Models
 {
     public class ProfileViewModel
     {
         public DBO.User User { get; set; }
+        public long idCurrentUser;
     }
 
     public class ChangePasswordModel

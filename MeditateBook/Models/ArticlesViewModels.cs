@@ -11,5 +11,6 @@ namespace MeditateBook.Models
     public class ArticleViewModel
     {
         public DBO.Article Article { get; set; }
+        public DBO.User User { get; set; }
     }
 }

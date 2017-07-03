@@ -61,6 +61,15 @@ namespace MeditateBook.Resources.Views.Articles {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Ajouter Traduction.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Traduire Article.
         /// </summary>
         public static string Title {

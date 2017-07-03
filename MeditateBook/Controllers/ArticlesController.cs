@@ -21,6 +21,7 @@ namespace MeditateBook.Controllers
         {
             ArticleViewModel model = new ArticleViewModel();
             model.Article = BusinessManagement.Article.GetArticle(id);
+            model.User = BusinessManagement.User.GetUserById(model.Article.IdCreator);
             return View(model);
         }
 

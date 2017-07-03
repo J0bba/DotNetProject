@@ -19,6 +19,8 @@ namespace MeditateBook.Controllers
             return View(model);
         }
 
+        
+
         public ActionResult ChangePassword()
         {
             ChangePasswordModel model = new ChangePasswordModel();

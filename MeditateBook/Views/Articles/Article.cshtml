@@ -11,6 +11,7 @@
             </div>
             <div class="col-md-1">
                 (@Html.Raw(Model.Article.CreatedDate.ToShortDateString()))
+                @Html.ActionLink(Model.User.Firstname + " " + Model.User.Lastname, "Index", "Profile", new { id = Model.Article.IdCreator }, null)
             </div>
             @Html.Raw(Model.Article.Content)
             <form>
