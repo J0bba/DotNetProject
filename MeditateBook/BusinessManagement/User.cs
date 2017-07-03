@@ -68,5 +68,10 @@ namespace MeditateBook.BusinessManagement
             DBO.User user = DataAccess.User.GetUserByName(username);
             return user.Id;
         }
+
+        public static bool DoesUserHaveNewMessage(int user_id)
+        {
+            return DataAccess.Message.DoesUserHaveNewMessage(user_id);
+        }
     }
 }

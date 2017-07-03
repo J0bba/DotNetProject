@@ -1,6 +1,7 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
+    bool hasNewMessage = Session["UserID"] != null ? MeditateBook.BusinessManagement.User.DoesUserHaveNewMessage(Int32.Parse(Session["UserID"].ToString())) : false;
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "nav-right" }))
     {
     @Html.AntiForgeryToken()
@@ -11,6 +12,10 @@
                 @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Administration, "Index", "Manage", null, new { @class = "nav-item" })
             }
             @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Messages, "Index", "Message", null, new { @class = "nav-item" })
+            @if (hasNewMessage)
+            {
+                <span class="button__badge" style="color:orangered; font-size:10px">New</span>
+            }
             @Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.Profile, "Index", "Profile", new { id = Session["User"] != null ? ((MeditateBook.DBO.User)Session["User"]).Id : -1 }, htmlAttributes: new { @class = "nav-item" })
             <a class="nav-item" href="javascript:document.getElementById('logoutForm').submit()">@Html.Raw(MeditateBook.Resources.Views.Shared._Layout.Logout)</a>
         </div>

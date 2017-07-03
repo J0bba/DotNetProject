@@ -21,6 +21,7 @@ namespace MeditateBook.Controllers
                 else 
                     addToConv(message, BusinessManagement.User.GetUserById(message.IdSender), ref conversations);
             }
+            conversations = conversations.OrderByDescending(x => x.LastMessageDate).ToList();
             return View(conversations);
         }
 

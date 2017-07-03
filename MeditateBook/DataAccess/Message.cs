@@ -135,5 +135,22 @@ namespace MeditateBook.DataAccess
                 return result;
             }
         }
+
+        public static bool DoesUserHaveNewMessage(int user_id)
+        {
+            try
+            {
+                using (MeditateBookEntities bdd = new MeditateBookEntities())
+                {
+                    T_Message message = bdd.T_Message.Where(x => x.id_receiver == user_id && x.isSeen == false).First();
+                    return message != null;
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                return false;
+            }
+        }
     }
 }

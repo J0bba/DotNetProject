@@ -22,3 +22,12 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.button__badge {
+    border-radius: 2px;
+    color: white;
+    padding: 1px 3px;
+    position: absolute; /* Position the badge within the relatively positioned button */
+    top: 0;
+    right: 0;
+}
