@@ -31,7 +31,7 @@ namespace MeditateBook.Controllers
             {
                 if (conversation.FriendName.Equals(user.Firstname + " " + user.Lastname))
                 {
-                    if (conversation.LastMessageDate < message.Date)
+                    if (conversation.LastMessageDate <= message.Date)
                     {
                         conversation.LastMessageDate = message.Date;
                         conversation.LastMessageContent = message.Content;
