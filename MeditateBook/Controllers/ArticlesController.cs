@@ -200,6 +200,7 @@ namespace MeditateBook.Controllers
                         i++;
                 }
                 HttpContext.Session["ListAttach" + i] = attach;
+                file.SaveAs(path);
             }
             return RedirectToAction("EditArticle", "Articles", model);
         }
