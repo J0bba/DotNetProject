@@ -16,7 +16,7 @@ namespace MeditateBook.Controllers
                 id = (long)HttpContext.Session["UserID"];
             ProfileViewModel model = new ProfileViewModel();
             model.User = BusinessManagement.User.GetUserById(id);
-            model.idCurrentUser = (long)HttpContext.Session["UserID"];
+            model.idCurrentUser = HttpContext.Session["UserID"] != null ? (long)HttpContext.Session["UserID"] : -1;
             return View(model);
         }
     }
