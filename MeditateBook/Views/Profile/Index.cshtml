@@ -25,6 +25,10 @@
                     <p>@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.Firstname) : @Model.User.Firstname</p>
                     <p>@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.Lastname) : @Model.User.Lastname</p>
                     <p>@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.Role) : @Model.User.Role</p>
+                    @if (Request.IsAuthenticated && Session["User"] != null && ((MeditateBook.DBO.User)Session["User"]).Id != Model.User.Id)
+                    {
+                        <button class="button is-info">Discuter</button>
+                    }
                 </div>
             </section>
         </div>

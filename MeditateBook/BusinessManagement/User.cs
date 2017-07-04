@@ -60,6 +60,8 @@ namespace MeditateBook.BusinessManagement
         public static bool ValidateUser(string username, string password)
         {
             string userPass = DataAccess.User.GetPasswordByUser(username);
+            if (userPass.Equals(""))
+                return false;
             string pass = Decrypt(userPass);
             return password.Equals(pass);
         }
