@@ -41,8 +41,6 @@ namespace MeditateBook.Controllers
             ArticleViewModel model = new ArticleViewModel();
             model.Article = BusinessManagement.Article.GetArticle(id);
             model.User = BusinessManagement.User.GetUserById(model.Article.IdCreator);
-            model.Image = BusinessManagement.ArticleImage.GetArticleImageByArticle(id);
-
             if (translation_id != -1)
             {
                 model.Translation = BusinessManagement.Translation.GetTranslationById(translation_id);
@@ -159,7 +157,7 @@ namespace MeditateBook.Controllers
                         while (HttpContext.Session["ListAttach" + i] != null)
                         {
                             DBO.ArticleAttach articleAttach = new DBO.ArticleAttach();
-                            articleAttach.Name = (string)HttpContext.Session["ListAttachName" + i];
+                            articleAttach.Name = (string)HttpContext.Session["ListAttach" + i];
                             articleAttach.FilePath = Path.Combine(dirAttach, articleAttach.Name);
                             articleAttach.IdArticle = article.Id;
                             BusinessManagement.ArticleAttach.CreateArticleAttach(articleAttach);
