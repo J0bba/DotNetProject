@@ -31,8 +31,8 @@
                     <div class="form-group">
                         @Html.Label(@MeditateBook.Resources.Views.Articles._Articles.AddImage, new { @class = "col-md-2 control-label" })
                         <div class="col-md-10">
-                            <input type="button" id="loadFile" value="@MeditateBook.Resources.Views.Articles._Articles.LoadImage" onclick="document.getElementById('file').click();" />
-                            <input type="file" style="display:none;" id="file" name="file" />
+                            @*<input type="button" id="loadFile" value="@MeditateBook.Resources.Views.Articles._Articles.LoadImage" onclick="document.getElementById('file').click();" />*@
+                            <input type="file" @*style="display:none;"*@ id="file" name="file" />
                         </div>
                     </div>
 
@@ -45,21 +45,29 @@
                 </div>
             }
                 <div class="col-md-6">
-                        @using (Html.BeginForm("EditArticle", "Articles", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                        @using (Html.BeginForm("AddAttach", "Articles", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
                         {
+                            @Html.AntiForgeryToken()
                             <div class="form-group">
                                 @Html.Label(@MeditateBook.Resources.Views.Articles._Articles.File, new { @class = "col-md-2 control-label" })
                                 <div class="col-md-10">
-                                    <input type="button" id="loadFile" value="@MeditateBook.Resources.Views.Articles._Articles.LoadFile" onclick="document.getElementById('file').click();" />
-                                    <input type="file" style="display:none;" id="file" name="file" />
+                                    @*<input type="button" id="loadFile" value="@MeditateBook.Resources.Views.Articles._Articles.LoadFile" onclick="document.getElementById('file').click();" />*@
+                                    <input type="file" @*style="display:none;"*@ id="file" name="file" />
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-offset-2 col-md-10">
-                                    <input type="submit" value="@MeditateBook.Resources.Views.Articles._Articles.AddFile" class="btn btn-default" />
-                                </div>
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="@MeditateBook.Resources.Views.Articles._Articles.AddFile" class="btn btn-default" />
                             </div>
                         }
+                    @if (Session["ListAttach0"] != null)
+                    {
+                        var i = 0;
+                        while (Session["ListAttach" + i] != null)
+                        {
+                            <label class="col-md-2 control-label" id="LabelAttach" runat="server">@Session["ListAttach" + i]</label>
+                            i++;
+                        }
+                    }
                  </div>
         </section>
     </div>

@@ -1,6 +1,7 @@
 ﻿using MeditateBook.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Security.AccessControl;
@@ -15,6 +16,15 @@ namespace MeditateBook.Controllers
         // GET: Articles
         public ActionResult Index()
         {
+            int i = 0;
+            if (HttpContext.Session["ListAttach" + i] != null)
+            {
+                while (HttpContext.Session["ListAttach" + i] != null)
+                {
+                    HttpContext.Session["ListAttach" + i] = null;
+                    i++;
+                }
+            }
             ArticlesListViewModel model = new ArticlesListViewModel();
             model.CurrentLang = Thread.CurrentThread.CurrentUICulture.ToString().ToLower();
             model.ListArticle = BusinessManagement.Article.GetListArticle();
@@ -44,6 +54,15 @@ namespace MeditateBook.Controllers
 
         public ActionResult Submit()
         {
+            int i = 0;
+            if (HttpContext.Session["ListAttach" + i] != null)
+            {
+                while (HttpContext.Session["ListAttach" + i] != null)
+                {
+                    HttpContext.Session["ListAttach" + i] = null;
+                    i++;
+                }
+            }
             return View();
         }
 
@@ -54,7 +73,7 @@ namespace MeditateBook.Controllers
 
         public ActionResult EditArticle()
         {
-            return View();
+            return View(new EditArticleModel());
         }
         
         public ActionResult EditTraduction(long id)
@@ -80,7 +99,6 @@ namespace MeditateBook.Controllers
                 return View(model);
             }
             var result = true;
-            //verify things that are not possibly verified by ModelState here and change result.
             switch (result)
             {
                 case true:
@@ -134,6 +152,22 @@ namespace MeditateBook.Controllers
                         image.IdArticle = article.Id;
                         BusinessManagement.ArticleImage.CreateArticleImage(image);
                     }
+                    string dirAttach = Server.MapPath("~/images/attach");
+                    int i = 0;
+                    if (HttpContext.Session["ListAttach" + i] != null)
+                    {
+                        while (HttpContext.Session["ListAttach" + i] != null)
+                        {
+                            DBO.ArticleAttach articleAttach = new DBO.ArticleAttach();
+                            articleAttach.Name = (string)HttpContext.Session["ListAttachName" + i];
+                            articleAttach.FilePath = Path.Combine(dirAttach, articleAttach.Name);
+                            articleAttach.IdArticle = article.Id;
+                            BusinessManagement.ArticleAttach.CreateArticleAttach(articleAttach);
+                            i++;
+                        }
+                    }
+                    
+
                     return RedirectToAction("Submit", "Articles");
                 case false:
                     ModelState.AddModelError("", "Insertion d'article invalide");
@@ -147,10 +181,27 @@ namespace MeditateBook.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         [HttpPost, ValidateInput(false)]
-        public ActionResult AddAttach(long idArticle, HttpPostedFileBase file)
+        public ActionResult AddAttach(HttpPostedFileBase file, EditArticleModel model)
         {
+            if (file != null)
+            {
+                string attach = System.IO.Path.GetFileName(file.FileName);
+                string dir = Server.MapPath("~/images/attach");
+                string path = System.IO.Path.Combine(dir, attach);
 
-            return RedirectToAction("EditArticle", "Articles");
+                if (!Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+                int i = 0;
+                if (HttpContext.Session["ListAttach" + i] != null)
+                {
+                    while (HttpContext.Session["ListAttach" + i] != null)
+                        i++;
+                }
+                HttpContext.Session["ListAttach" + i] = attach;
+            }
+            return RedirectToAction("EditArticle", "Articles", model);
         }
 
 

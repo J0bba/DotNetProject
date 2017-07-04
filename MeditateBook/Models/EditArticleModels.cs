@@ -22,8 +22,12 @@ namespace MeditateBook.Models
 
         [Display(Name = "Image")]
         public String ImagePath { get; set; }
-
-        public List<DBO.ArticleAttach> listAttach;
+        //public EditArticleModel()
+        //{
+        //    List<DBO.ArticleAttach> List = (List<DBO.ArticleAttach>)HttpContext.Session["ListAttach"];
+        //    listAttach = List;
+        //}
+        public List<DBO.ArticleAttach> listAttach = new List<DBO.ArticleAttach>();
     }
 
     public class TradArticleModel
