@@ -204,6 +204,15 @@ namespace MeditateBook.Controllers
             return RedirectToAction("EditArticle", "Articles", model);
         }
 
-
+        public ActionResult DownloadAttach(long id, long idArticle)
+        {
+            List<DBO.ArticleAttach> list = BusinessManagement.ArticleAttach.GetListArticleAttachByArticle(idArticle);
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].Id == id)
+                    return File(list[i].FilePath, Server.UrlEncode(list[i].FilePath));
+            }
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
