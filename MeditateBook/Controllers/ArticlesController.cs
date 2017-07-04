@@ -212,7 +212,6 @@ namespace MeditateBook.Controllers
             {
                 if (list[i].Id == id)
                     return File(list[i].FilePath, System.Net.Mime.MediaTypeNames.Application.Octet, list[i].Name);
-               // return File(list[i].FilePath, Server.UrlEncode(list[i].FilePath));
             }
             return RedirectToAction("Index", "Home");
             
