@@ -31,6 +31,8 @@ namespace MeditateBook.Controllers
             ArticleViewModel model = new ArticleViewModel();
             model.Article = BusinessManagement.Article.GetArticle(id);
             model.User = BusinessManagement.User.GetUserById(model.Article.IdCreator);
+            model.Image = BusinessManagement.ArticleImage.GetArticleImageByArticle(id);
+
             if (translation_id != -1)
             {
                 model.Translation = BusinessManagement.Translation.GetTranslationById(translation_id);

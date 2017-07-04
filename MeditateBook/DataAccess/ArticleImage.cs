@@ -74,15 +74,14 @@ namespace MeditateBook.DataAccess
             }
         }
 
-        public static List<DBO.ArticleImage> GetListArticleImageByArticle(long article_id)
+        public static DBO.ArticleImage GetArticleImageByArticle(long article_id)
         {
-            List<DBO.ArticleImage> result = new List<DBO.ArticleImage>();
             try
             {
                 using (MeditateBookEntities bdd = new MeditateBookEntities())
                 {
-                    List<T_Article_Image> list = bdd.T_Article_Image.Where(x => x.id_article == article_id).ToList();
-                    foreach (T_Article_Image ArticleImage in list)
+                    T_Article_Image ArticleImage = bdd.T_Article_Image.Where(x => x.id_article == article_id).First();
+                    if (ArticleImage != null)
                     {
                         DBO.ArticleImage newAttach = new DBO.ArticleImage()
                         {
@@ -91,15 +90,15 @@ namespace MeditateBook.DataAccess
                             ImagePath = ArticleImage.image_path,
                             Name = ArticleImage.name
                         };
-                        result.Add(newAttach);
+                        return newAttach;
                     }
-                    return result;
+                    return null;
                 }
             }
             catch (Exception e)
             {
                 System.Diagnostics.Debug.WriteLine(e);
-                return result;
+                return null;
             }
         }
 

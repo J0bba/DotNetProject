@@ -7,7 +7,14 @@
 
     <h2 class="title">@Html.Raw(Model.Article.Title)</h2>
     <div class="card" style="background-color:gainsboro">
-
+        @if (Model.Image != null)
+        {
+            <div class="card-image">
+                <figure class="image">
+                    <img src="@Url.Content("/images/article/" + @Model.Image.Name)" alt="@Model.Image.Name">
+                </figure>
+            </div>
+        }
         @if (Model.Translation == null)
         {
             <div class="card-content">

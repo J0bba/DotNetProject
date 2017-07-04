@@ -175,4 +175,13 @@
   <data name="noMissingLabel" xml:space="preserve">
     <value>Pas de traduction manquante</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Voir</value>
+  </data>
+  <data name="Validate" xml:space="preserve">
+    <value>Valider</value>
+  </data>
 </root>

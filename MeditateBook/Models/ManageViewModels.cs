@@ -36,7 +36,7 @@ namespace MeditateBook.Models
     public class ManageTranslationsModel
     {
         public DBO.User User { get; set; }
-        public List<Tuple<DBO.Article, List<DBO.Language>>> missingTransArticles { get; set; }
-        public List<DBO.Translation> Translations { get; set; }
+        public List<Tuple<DBO.Article, List<DBO.Language>>> MissingTransArticles { get; set; }
+        public List<Tuple<DBO.Article, DBO.Translation>> Translations { get; set; }
     }
 }

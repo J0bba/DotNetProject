@@ -159,6 +159,15 @@ namespace MeditateBook.Resources.Views.Manage {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Supprimer.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Prénom.
         /// </summary>
         public static string Firstname {
@@ -258,6 +267,15 @@ namespace MeditateBook.Resources.Views.Manage {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Voir.
+        /// </summary>
+        public static string Show {
+            get {
+                return ResourceManager.GetString("Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Langue de traduction.
         /// </summary>
         public static string TranslationLanguage {
@@ -272,6 +290,15 @@ namespace MeditateBook.Resources.Views.Manage {
         public static string User {
             get {
                 return ResourceManager.GetString("User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Valider.
+        /// </summary>
+        public static string Validate {
+            get {
+                return ResourceManager.GetString("Validate", resourceCulture);
             }
         }
     }

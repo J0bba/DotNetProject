@@ -467,6 +467,7 @@
     <Content Include="Views\Message\Conversation.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Manage\EditUser.cshtml" />
+    <Content Include="Views\Manage\ShowTrad.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

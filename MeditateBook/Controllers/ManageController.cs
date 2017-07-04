@@ -86,9 +86,12 @@ namespace MeditateBook.Controllers
         {
             ManageTranslationsModel model = new ManageTranslationsModel();
             model.User = BusinessManagement.User.GetUserById(Int32.Parse(HttpContext.Session["UserID"].ToString()));
-            model.Translations = BusinessManagement.Translation.GetListNonValidatedTranslation();
+            model.Translations = new List<Tuple<DBO.Article, DBO.Translation>>();
+            var translations = BusinessManagement.Translation.GetListNonValidatedTranslation();
+            foreach (var translation in translations)
+                model.Translations.Add(new Tuple<DBO.Article, DBO.Translation>(BusinessManagement.Article.GetArticle(translation.IdArticle), translation));
             List<Tuple<DBO.Article, List<DBO.Language>>> missingTransArticles = BusinessManagement.Article.GetListArticleWithMissingTrans();
-            model.missingTransArticles = missingTransArticles;
+            model.MissingTransArticles = missingTransArticles;
 
             return View(model);
         }
@@ -103,7 +106,14 @@ namespace MeditateBook.Controllers
 
         public ActionResult ShowTrad(int id)
         {
-            return RedirectToAction("ManageTranslations", "Manage");
+            ArticleViewModel model = new ArticleViewModel();
+            model.Translation = BusinessManagement.Translation.GetTranslationById(id);
+            model.Translator = BusinessManagement.User.GetUserById(model.Translation.IdTranslator);
+            model.Article = BusinessManagement.Article.GetArticle(model.Translation.IdArticle);
+            model.User = BusinessManagement.User.GetUserById(model.Article.IdCreator);
+            model.Image = BusinessManagement.ArticleImage.GetArticleImageByArticle(id);
+
+            return View(model);
         }
 
         public ActionResult DeleteTrad(int id)

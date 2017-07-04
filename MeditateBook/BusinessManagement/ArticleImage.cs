@@ -22,9 +22,9 @@ namespace MeditateBook.BusinessManagement
             return DataAccess.ArticleImage.UpdateArticleImage(articleImage);
         }
 
-        public static List<DBO.ArticleImage> GetListArticleImageByArticle(long article_id)
+        public static DBO.ArticleImage GetArticleImageByArticle(long article_id)
         {
-            return DataAccess.ArticleImage.GetListArticleImageByArticle(article_id);
+            return DataAccess.ArticleImage.GetArticleImageByArticle(article_id);
         }
 
         public static List<DBO.ArticleImage> GetListWithWord(string word)

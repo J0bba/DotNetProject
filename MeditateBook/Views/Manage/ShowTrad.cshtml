@@ -1,0 +1,28 @@
+﻿@model MeditateBook.Models.ArticleViewModel
+@{
+    ViewBag.Title = MeditateBook.Resources.Views.Shared._Layout.Articles;
+}
+
+<section class="section">
+    <h2 class="title">@Html.Raw(Model.Article.Title)</h2>
+    <div class="card" style="background-color:gainsboro">
+    @if (Model.Image != null)
+    {
+        <div class="card-image">
+            <figure class="image">
+                <img src="@Url.Content("/images/article/" + @Model.Image.Name)" alt="@Model.Image.Name">
+            </figure>
+        </div>
+    }
+        <div class="card-content">
+            <div class="content">
+                @Html.Raw(Model.Translation.Content)
+                <br>
+                <small>@Html.Raw(Model.Article.CreatedDate.ToShortDateString()) @MeditateBook.Resources.Views.Articles._Articles.TranslatedBy @Html.ActionLink(Model.Translator.Firstname + " " + Model.Translator.Lastname, "Index", "Profile", new { id = Model.Translator.Id }, null)</small>
+            </div>
+        </div>
+        <footer class="card-footer">
+            @Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.Validate, "ValidateTrad", new { id = Model.Translation.Id }, null)
+        </footer>
+    </div>
+</section>

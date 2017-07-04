@@ -20,8 +20,8 @@
                     <h1 class="title">
                         @MeditateBook.Resources.Views.Manage._Manage.noTransTitle
                     </h1>
-                    @if (Model.missingTransArticles.Count != 0)
-                        {
+                    @if (Model.MissingTransArticles.Count != 0)
+                    {
                         <table>
                             <tr>
                                 <th>
@@ -31,7 +31,7 @@
                                     @MeditateBook.Resources.Views.Manage._Manage.missingLang
                                 </th>
                             </tr>
-                            @foreach (var item in Model.missingTransArticles)
+                            @foreach (var item in Model.MissingTransArticles)
                             {
                                 <tr>
                                     <td><a href="@Url.Action("Article", "Articles", new { id = item.Item1.Id })">@item.Item1.Title</a></td>
@@ -45,8 +45,6 @@
                                         {
                                             <span>@lang.Name</span>
                                         }
-
-
                                     }
                                     </td>
                                 </tr>
@@ -79,15 +77,15 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.IdArticle)
+                                    @Html.DisplayFor(modelItem => item.Item1.Title)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.IdLanguage)
+                                    English
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Validate", "ValidateTrad", new { id = item.Id })  |
-                                    @Html.ActionLink("Show", "ShowTrad", new { id = item.Id }) |
-                                    @Html.ActionLink("Delete", "DeleteTrad", new { id = item.Id })
+                                    @Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.Validate, "ValidateTrad", new { id = item.Item2.Id })  |
+                                    @Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.Show, "ShowTrad", new { id = item.Item2.Id }) |
+                                    @Html.ActionLink(MeditateBook.Resources.Views.Manage._Manage.Delete, "DeleteTrad", new { id = item.Item2.Id })
                                 </td>
                             </tr>
                         }
