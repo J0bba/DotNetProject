@@ -70,6 +70,15 @@ namespace MeditateBook.Resources.Views.Articles {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Contenu original.
+        /// </summary>
+        public static string OriginalContent {
+            get {
+                return ResourceManager.GetString("OriginalContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Traduire Article.
         /// </summary>
         public static string Title {

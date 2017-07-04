@@ -23,6 +23,7 @@ namespace MeditateBook.Models
         [Display(Name = "Image")]
         public String ImagePath { get; set; }
 
+        public List<DBO.ArticleAttach> listAttach;
     }
 
     public class TradArticleModel
@@ -39,11 +40,6 @@ namespace MeditateBook.Models
         [Required]
         [Display(Name = "IdOriginal")]
         public long IdOriginal { get; set; }
-
-        [Required]
-        [StringLength(100, ErrorMessage = "La chaîne {0} doit comporter au moins {2} caractères.", MinimumLength = 2)]
-        [Display(Name = "Title")]
-        public string Title { get; set; }
 
         [Required]
         [Display(Name = "Content")]

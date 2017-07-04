@@ -23,7 +23,16 @@
                     {
                         @Html.AntiForgeryToken()
 
-                        @Html.EnumDropDownListFor(m => m.Enum)
+                        var selectList = Enum.GetValues(typeof(MeditateBook.BusinessManagement.UserRoles.Roles))
+                                         .Cast<MeditateBook.BusinessManagement.UserRoles.Roles>()
+                                         .Where(e => e != MeditateBook.BusinessManagement.UserRoles.Roles.Super_Admin)
+                                         .Select(e => new SelectListItem {
+                                             Value = ((int)e).ToString(),
+                                             Text = e.ToString()
+                                         }
+                                         );
+
+                        @Html.DropDownListFor(m => m.Enum, selectList)
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
                                 <input type="submit" value="Soumettre" class="btn btn-default" />

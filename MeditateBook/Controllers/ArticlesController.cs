@@ -87,13 +87,8 @@ namespace MeditateBook.Controllers
                     if (idCreator != null)
                         translation.IdTranslator = (long)idCreator;
                     BusinessManagement.Translation.CreateTranslation(translation);
-                    RedirectToAction("SubmitTraduction", "Article");
-                    return View(model);
-                case false:
-                    ModelState.AddModelError("", "Insertion de traduction invalide");
-                    return View(model);
+                    return RedirectToAction("SubmitTraduction", "Articles");
                 default:
-                    ModelState.AddModelError("", "Insertion de traduction invalide");
                     return View(model);
             }
         }
@@ -121,12 +116,12 @@ namespace MeditateBook.Controllers
                     if (file != null)
                     {
                         string pic = System.IO.Path.GetFileName(file.FileName);
-                        string path = System.IO.Path.Combine(
-                                               Server.MapPath("~/images/article"), pic);
+                        string dir = Server.MapPath("~/images/article");
+                        string path = System.IO.Path.Combine(dir, pic);
 
-                        if (!Directory.Exists("~/images/article"))
+                        if (!Directory.Exists(dir))
                         {
-                            Directory.CreateDirectory("~/images/article");
+                            Directory.CreateDirectory(dir);
                         }
 
                         // file is uploaded
@@ -137,8 +132,7 @@ namespace MeditateBook.Controllers
                         image.IdArticle = article.Id;
                         BusinessManagement.ArticleImage.CreateArticleImage(image);
                     }
-                    RedirectToAction("Submit", "Article");
-                    return View(model);
+                    return RedirectToAction("Submit", "Articles");
                 case false:
                     ModelState.AddModelError("", "Insertion d'article invalide");
                     return View(model);
@@ -147,5 +141,16 @@ namespace MeditateBook.Controllers
                     return View(model);
             }
         }
+
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        [HttpPost, ValidateInput(false)]
+        public ActionResult AddAttach(long idArticle, HttpPostedFileBase file)
+        {
+
+            return RedirectToAction("EditArticle", "Articles");
+        }
+
+
     }
 }

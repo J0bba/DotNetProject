@@ -20,8 +20,6 @@ namespace MeditateBook.Controllers
             return View(model);
         }
 
-        
-
         public ActionResult ChangePassword()
         {
             ChangePasswordModel model = new ChangePasswordModel();
@@ -51,7 +49,7 @@ namespace MeditateBook.Controllers
         {
             ManageUsersModel model = new ManageUsersModel();
             model.User = BusinessManagement.User.GetUserById(Int32.Parse(HttpContext.Session["UserID"].ToString()));
-            model.Users = BusinessManagement.User.GetUsersUnderRole(model.User.Role);
+            model.Users = BusinessManagement.User.GetUsersUnderRole(model.User.Id, model.User.Role);
             return View(model);
         }
 
@@ -93,6 +91,25 @@ namespace MeditateBook.Controllers
             model.missingTransArticles = missingTransArticles;
 
             return View(model);
+        }
+
+        public ActionResult ValidateTrad(int id)
+        {
+            DBO.Translation translation = BusinessManagement.Translation.GetTranslationById(id);
+            translation.Validated = true;
+            BusinessManagement.Translation.UpdateTranslation(translation);
+            return RedirectToAction("ManageTranslations", "Manage");
+        }
+
+        public ActionResult ShowTrad(int id)
+        {
+            return RedirectToAction("ManageTranslations", "Manage");
+        }
+
+        public ActionResult DeleteTrad(int id)
+        {
+            BusinessManagement.Translation.DeleteTranslation(id);
+            return RedirectToAction("ManageTranslations", "Manage");
         }
     }
 }

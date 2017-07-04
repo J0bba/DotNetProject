@@ -146,9 +146,36 @@
     <value>..\shared\_layout.en.designer.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="AddArticle" xml:space="preserve">
-    <value>Ajouter un Article</value>
+    <value>Ajouter un article</value>
   </data>
   <data name="TranslatedBy" xml:space="preserve">
     <value>traduit par</value>
+  </data>
+  <data name="AddFile" xml:space="preserve">
+    <value>Ajouter fichier</value>
+  </data>
+  <data name="AddImage" xml:space="preserve">
+    <value>Ajouter image</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Contenu</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Fichiers</value>
+  </data>
+  <data name="ImagePath" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="LoadFile" xml:space="preserve">
+    <value>Charger Fichier</value>
+  </data>
+  <data name="LoadImage" xml:space="preserve">
+    <value>Charger Image</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Soumettre</value>
   </data>
 </root>

@@ -51,9 +51,9 @@ namespace MeditateBook.BusinessManagement
             return user;
         }
 
-        public static List<DBO.User> GetUsersUnderRole(BusinessManagement.UserRoles.Roles role)
+        public static List<DBO.User> GetUsersUnderRole(long id, BusinessManagement.UserRoles.Roles role)
         {
-            List<DBO.User> users = DataAccess.User.GetUsersUnderRole(role);
+            List<DBO.User> users = DataAccess.User.GetUsersUnderRole(id, role);
             return users;
         }
 
