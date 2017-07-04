@@ -27,7 +27,7 @@
                     <p>@Html.Raw(MeditateBook.Resources.Views.Manage._Manage.Role) : @Model.User.Role</p>
                     @if (Request.IsAuthenticated && Session["User"] != null && ((MeditateBook.DBO.User)Session["User"]).Id != Model.User.Id)
                     {
-                        <button class="button is-info">Discuter</button>
+                        <button class="button is-info">@Html.ActionLink(MeditateBook.Resources.Views.Shared._Layout.SendMessage, "Conversation", "Message", new { friend_id = Model.User.Id }, null)</button>
                     }
                 </div>
             </section>

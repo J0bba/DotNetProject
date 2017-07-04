@@ -1,9 +1,14 @@
 ﻿@model List<MeditateBook.DBO.Message>
 @{ 
     MeditateBook.DBO.User user = (MeditateBook.DBO.User)Session["User"];
-    long friend_id = Model.First().IdReceiver != user.Id ? Model.First().IdReceiver : Model.First().IdSender;
+    long friend_id = Int32.Parse(Request["friend_id"]);
+    MeditateBook.DBO.User friend = MeditateBook.BusinessManagement.User.GetUserById(friend_id);
+    if (Model.Count > 0)
+    {
+        friend_id = Model.First().IdReceiver != user.Id ? Model.First().IdReceiver : Model.First().IdSender;
+    }
 }
-<h2>@MeditateBook.Resources.Views.Message.Conversation.title_label @(user.Firstname + " " + user.Lastname)</h2>
+<h2>@MeditateBook.Resources.Views.Message.Conversation.title_label @(friend.Firstname + " " + friend.Lastname)</h2>
 <h1>@ViewBag.Error</h1>
 <section class="section">
     @foreach (MeditateBook.DBO.Message msg in Model)
