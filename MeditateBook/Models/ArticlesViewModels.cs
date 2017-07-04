@@ -19,5 +19,7 @@ namespace MeditateBook.Models
         public DBO.Translation Translation { get; set; }
         public DBO.User Translator { get; set; }
         public DBO.ArticleImage Image { get; set; }
+
+        public List<DBO.ArticleAttach> listAttach { get; set; }
     }
 }

@@ -178,4 +178,7 @@
   <data name="Submit" xml:space="preserve">
     <value>Soumettre</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>Télécharger</value>
+  </data>
 </root>

@@ -64,7 +64,7 @@
                         var i = 0;
                         while (Session["ListAttach" + i] != null)
                         {
-                            <label class="col-md-2 control-label" id="LabelAttach" runat="server">@Session["ListAttach" + i]</label>
+                            <label class="control-label" id="LabelAttach" runat="server">@Session["ListAttach" + i]</label><br>
                             i++;
                         }
                     }

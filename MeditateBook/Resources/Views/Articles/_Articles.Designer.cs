@@ -213,6 +213,15 @@ namespace MeditateBook.Resources.Views.Articles {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Télécharger.
+        /// </summary>
+        public static string Download {
+            get {
+                return ResourceManager.GetString("Download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Fichiers.
         /// </summary>
         public static string File {

@@ -27,7 +27,7 @@
             if (Request.IsAuthenticated && Session["User"] != null && ((MeditateBook.DBO.User)Session["User"]).Role >= MeditateBook.BusinessManagement.UserRoles.Roles.Translator)
             {
             <footer class="card-footer">
-                @Html.ActionLink("Ajouter une traduction", "EditTraduction", new { id = Model.Article.Id }, null)
+                @Html.ActionLink(MeditateBook.Resources.Views.Articles._TradArticle.AddTraduction, "EditTraduction", new { id = Model.Article.Id }, null)
             </footer>
             }
         }
@@ -44,6 +44,11 @@
             {
                 <footer class="card-footer">
                     @Html.ActionLink(MeditateBook.Resources.Views.Articles._TradArticle.Add, "EditTraduction", new { id = Model.Article.Id }, null)
+
+                    @foreach (var Attach in Model.listAttach)
+                    {
+                        @Html.ActionLink(MeditateBook.Resources.Views.Articles._Articles.Download, "DownloadAttach", new { id = Attach.Id }, null)
+                    }
                 </footer>
             }
         }
