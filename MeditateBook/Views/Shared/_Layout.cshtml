@@ -7,6 +7,8 @@
     <title>@ViewBag.Title - @MeditateBook.Resources.Views.Shared._Layout.Title</title>
     @Styles.Render("~/Content/css")
     <link href="@Url.Content("~/Content/bulma.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="@Url.Action("Index", "RssFeed")" rel="alternate" type="application/rss+xml" title="RSS Feed"/>
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -36,7 +38,11 @@
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - MeditateBook</p>
+            <a href="@Url.Action("Index", "RSSFeed")">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Generic_Feed-icon.svg/500px-Generic_Feed-icon.svg.png" style="width:20px;height:20px" />
+            </a>
             @Html.Partial("_SelectLanguage")
+            
         </footer>
     </div>
     <script src="~/ckeditor/ckeditor.js"></script>
